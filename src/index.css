@@ -1,0 +1,329 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-size: 15px;
+  /* Slightly decreased from default 16px */
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #E2E8F0;
+  background: #050510;
+  zoom: 0.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6366F1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A855F7;
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #7B2FBE, #A855F7, #C084FC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-saas {
+  background: linear-gradient(90deg, #8B5CF6, #3B82F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Hero Light Theme ===== */
+.hero-light-bg {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F7FF 35%, #EEF2FF 100%);
+}
+
+.hero-light-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* ===== SaaS Glass Cards ===== */
+.saas-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.saas-glass-strong {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.12);
+}
+
+.saas-glass-widget {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
+}
+
+/* ===== SaaS Hero Heading ===== */
+.hero-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #0F172A;
+}
+
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+  }
+}
+
+/* ===== Floating Animations ===== */
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatMedium {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(1deg);
+  }
+}
+
+@keyframes floatFast {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseOrb {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes dashMove {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: floatMedium 5s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: floatFast 4s ease-in-out infinite;
+}
+
+.pulse-orb {
+  animation: pulseOrb 4s ease-in-out infinite;
+}
+
+/* ===== Section Backgrounds (Dark sections) ===== */
+.section-dark {
+  background: #050510;
+}
+
+.section-dark-alt {
+  background: linear-gradient(180deg, #0A0A1A 0%, #0D0B1E 50%, #0A0A1A 100%);
+}
+
+.section-dark-elevated {
+  background: linear-gradient(180deg, #0D0B1E 0%, #110E24 50%, #0D0B1E 100%);
+}
+
+/* ===== Services Light Section ===== */
+.services-light-bg {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F3F1FF 40%, #EEF2FF 70%, #F8F9FF 100%);
+}
+
+.services-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Dotted pattern overlay for cards */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.15) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.dot-pattern-light {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Gradient text: purple → blue */
+.gradient-text-pb {
+  background: linear-gradient(90deg, #7c3aed, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Service card wave decoration */
+.card-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 0 0 28px 28px;
+  pointer-events: none;
+}
+
+/* ===== Dark Glass Card ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card-hover:hover {
+  background: rgba(123, 47, 190, 0.06);
+  border-color: rgba(123, 47, 190, 0.15);
+}
+
+/* ===== Subtle Grid ===== */
+.subtle-grid {
+  background-image:
+    linear-gradient(rgba(123, 47, 190, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 47, 190, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #fff;
+}
+
+/* ===== Floating Orbs ===== */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ===== Section Dividers ===== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(123, 47, 190, 0.2), transparent);
+}
+
+/* ===== SaaS Navbar ===== */
+.nav-saas {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+}
+
+.nav-saas-scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 4px 30px rgba(99, 102, 241, 0.08);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+/* ===== Range Slider ===== */
+.slider-purple::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B5CF6, #6366F1);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  border: 3px solid white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.slider-purple::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+.slider-purple::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8B5CF6, #6366F1);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  border: 3px solid white;
+}
