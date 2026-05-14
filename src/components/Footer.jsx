@@ -41,9 +41,9 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
       {/* SaaS Background Style - EXACT AS REQUESTED */}
       <div className="absolute inset-0 z-0" style={{
         background: `
-          radial-gradient(circle at top left, rgba(124,77,255,0.08), transparent 30%),
-          radial-gradient(circle at right, rgba(91,140,255,0.08), transparent 30%),
-          #F5F7FF
+          radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 30%),
+          radial-gradient(circle at right, rgba(96,165,250,0.08), transparent 30%),
+          #F0F9FF
         `
       }} />
 
@@ -53,10 +53,10 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
           {/* Brand Section */}
           <div className="lg:col-span-5 space-y-8">
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-white shadow-lg shadow-brand-purple/10 flex items-center justify-center p-2 group-hover:scale-110 transition-transform">
-                <img src="/rudrifix logo.webp" alt="Rudrifix" className="w-full h-auto" />
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-blue-500/10 flex items-center justify-center p-3 group-hover:scale-110 transition-transform">
+                <img src="/rudrifix logo.webp" alt="Rudrifix" className="w-full h-auto object-contain" />
               </div>
-              <span className="font-heading font-black text-xl text-black tracking-tighter">Rudrifix</span>
+
             </a>
 
             <p className="text-black text-sm font-medium leading-relaxed max-w-sm">
@@ -91,10 +91,14 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
                         onClick={(e) => {
                           if (link.name === 'Privacy Policy') {
                             e.preventDefault()
-                            onPrivacyClick()
+                            if (onPrivacyClick) {
+                              onPrivacyClick()
+                            }
                           } else if (link.name === 'Terms & Conditions') {
                             e.preventDefault()
-                            onTermsClick()
+                            if (onTermsClick) {
+                              onTermsClick()
+                            }
                           } else {
                             handleNavClick(e, link.href)
                           }

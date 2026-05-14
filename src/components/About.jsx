@@ -31,9 +31,9 @@ export default function About() {
       {/* SaaS Background Style */}
       <div className="absolute inset-0 z-0" style={{
         background: `
-          radial-gradient(circle at top left, rgba(124,77,255,0.08), transparent 30%),
-          radial-gradient(circle at right, rgba(91,140,255,0.08), transparent 30%),
-          #F5F7FF
+          radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 30%),
+          radial-gradient(circle at right, rgba(96,165,250,0.08), transparent 30%),
+          #F0F9FF
         `
       }} />
 

@@ -7,13 +7,13 @@ const GrowthChart = () => (
   <svg viewBox="0 0 280 120" className="w-full h-auto">
     <defs>
       <linearGradient id="chartGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#6366F1" />
-        <stop offset="50%" stopColor="#A855F7" />
-        <stop offset="100%" stopColor="#EC4899" />
+        <stop offset="0%" stopColor="#3B82F6" />
+        <stop offset="50%" stopColor="#60A5FA" />
+        <stop offset="100%" stopColor="#93C5FD" />
       </linearGradient>
       <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#6366F1" stopOpacity="0.2" />
-        <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+        <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.2" />
+        <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
       </linearGradient>
     </defs>
     {/* Grid lines */}
@@ -103,7 +103,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="hero-heading mb-6"
             >
-              <span className="font-['Satisfy'] text-indigo-600 block mb-2 text-4xl sm:text-5xl -rotate-2">360° Solutions</span>
+              <span className="font-['Satisfy'] text-blue-600 block mb-2 text-4xl sm:text-5xl -rotate-2">360° Solutions</span>
               Built To <span className="gradient-text-saas">Scale Your Brand</span>
             </motion.h1>
 
@@ -179,7 +179,7 @@ export default function Hero() {
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
                 className="group px-8 py-4 rounded-full text-white font-heading font-bold text-base shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] flex items-center gap-2 min-h-[52px]"
-                style={{ background: 'linear-gradient(135deg, #6366F1, #C084FC)' }}
+                style={{ background: 'linear-gradient(135deg, #3B82F6, #60A5FA)' }}
               >
                 Start Growing Today
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -200,7 +200,7 @@ export default function Hero() {
           {/* ════════ RIGHT COLUMN — Opening 3D Laptop ════════ */}
           <div className="hidden lg:flex relative h-[650px] items-center justify-center perspective-[2000px]">
             {/* Ambient Atmosphere */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-500/5 blur-[100px] rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/5 blur-[100px] rounded-full" />
 
             <div className="relative w-full h-full flex items-center justify-center transform-style-3d">
 
@@ -302,7 +302,7 @@ export default function Hero() {
                 </div>
 
                 {/* Laptop Lid Back Glow */}
-                <div className="absolute -z-10 top-0 left-0 w-full h-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -z-10 top-0 left-0 w-full h-full bg-blue-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
 
               {/* Breakout Widgets (Floating around laptop) */}

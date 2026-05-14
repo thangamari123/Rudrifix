@@ -9,7 +9,7 @@ export default function CallToAction() {
   const [ref, isInView] = useInView({ threshold: 0.1 })
 
   return (
-    <section id="cta" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #FAFBFF 0%, #F4F1FF 45%, #EEF4FF 100%)' }}>
+    <section id="cta" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 45%, #DBEAFE 100%)' }}>
       {/* ── Background decorations ── */}
       <div className="absolute top-[-10%] left-[10%] w-[600px] h-[600px] rounded-full bg-purple-200/20 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[5%] w-[550px] h-[550px] rounded-full bg-blue-200/20 blur-[120px] pointer-events-none" />
@@ -17,9 +17,9 @@ export default function CallToAction() {
 
       {/* Abstract curves */}
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]" viewBox="0 0 1440 600" preserveAspectRatio="none">
-        <path d="M0,300 Q360,100 720,300 T1440,300" fill="none" stroke="#8B5CF6" strokeWidth="2" />
-        <path d="M0,340 Q360,140 720,340 T1440,340" fill="none" stroke="#3B82F6" strokeWidth="1.5" />
-        <path d="M0,380 Q360,180 720,380 T1440,380" fill="none" stroke="#6366F1" strokeWidth="1" />
+        <path d="M0,300 Q360,100 720,300 T1440,300" fill="none" stroke="#3B82F6" strokeWidth="2" />
+        <path d="M0,340 Q360,140 720,340 T1440,340" fill="none" stroke="#60A5FA" strokeWidth="1.5" />
+        <path d="M0,380 Q360,180 720,380 T1440,380" fill="none" stroke="#93C5FD" strokeWidth="1" />
       </svg>
 
       {/* Dot grid */}
@@ -50,13 +50,13 @@ export default function CallToAction() {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-7"
         >
-          <div className="relative inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full" style={{ background: 'rgba(139,92,246,0.12)', backdropFilter: 'blur(12px)', boxShadow: '0 10px 30px rgba(124,58,237,0.12)' }}>
-            <Zap size={14} className="text-[#7C3AED]" />
-            <span className="text-[#7C3AED] text-xs font-bold uppercase tracking-[0.08em] font-heading">Stay Ahead</span>
+          <div className="relative inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)', boxShadow: '0 10px 30px rgba(59,130,246,0.12)' }}>
+            <Zap size={14} className="text-[#3B82F6]" />
+            <span className="text-[#3B82F6] text-xs font-bold uppercase tracking-[0.08em] font-heading">Stay Ahead</span>
             {/* Glow pulse */}
             <motion.div
               className="absolute inset-0 rounded-full"
-              style={{ border: '1px solid rgba(139,92,246,0.2)' }}
+              style={{ border: '1px solid rgba(59,130,246,0.2)' }}
               animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />
@@ -99,7 +99,7 @@ export default function CallToAction() {
             whileHover={{ y: -5 }}
             whileTap={{ scale: 0.97 }}
             className="group flex items-center justify-center gap-3 w-full sm:w-auto px-10 sm:px-11 h-[72px] sm:h-[80px] rounded-3xl text-white font-heading font-bold text-lg sm:text-xl transition-shadow duration-400"
-            style={{ background: 'linear-gradient(90deg, #7C3AED, #4F46E5, #2563EB)', boxShadow: '0 20px 50px rgba(99,102,241,0.35)' }}
+            style={{ background: 'linear-gradient(90deg, #3B82F6, #2563EB, #1E40AF)', boxShadow: '0 20px 50px rgba(59,130,246,0.35)' }}
           >
             <CalendarDays size={20} className="group-hover:scale-110 transition-transform" />
             Book Free Call
@@ -129,7 +129,7 @@ export default function CallToAction() {
       </div>
 
       {/* Bottom transition to light footer */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FAFBFF] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F0F9FF] to-transparent" />
     </section>
   )
 }

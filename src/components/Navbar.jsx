@@ -60,16 +60,16 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
   const navBg = !scrolled
     ? 'bg-transparent'
     : isDark
-      ? 'bg-[#050510]/80 backdrop-blur-2xl shadow-2xl shadow-black/20 border-b border-white/5'
-      : 'bg-white/70 backdrop-blur-2xl border-b border-indigo-500/10 shadow-[0_8px_32px_rgba(99,102,241,0.04)]'
+      ? 'bg-[#0A0F2C]/80 backdrop-blur-2xl shadow-2xl shadow-black/20 border-b border-white/5'
+      : 'bg-white/70 backdrop-blur-2xl border-b border-blue-500/10 shadow-[0_8px_32px_rgba(59,130,246,0.04)]'
 
-  const linkColor = isDark ? 'text-white/70 hover:text-white' : 'text-slate-600 hover:text-brand-purple'
-  const linkHover = isDark ? 'hover:bg-white/5' : 'hover:bg-brand-purple/5'
+  const linkColor = isDark ? 'text-white/70 hover:text-white' : 'text-slate-600 hover:text-blue-600'
+  const linkHover = isDark ? 'hover:bg-white/5' : 'hover:bg-blue-600/5'
   const linkStyle = `${linkColor} ${linkHover} px-4 py-2 rounded-xl transition-all duration-300 font-bold`
   const logoText = isDark ? 'text-white' : 'text-slate-900'
   const menuIcon = isDark ? 'text-white' : 'text-slate-800'
-  const mobileBg = isDark ? 'bg-[#0D0B1E]/95 backdrop-blur-2xl border-white/10' : 'bg-white/80 backdrop-blur-2xl border-indigo-500/10 shadow-2xl'
-  const mobileLink = isDark ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-700 hover:text-brand-purple hover:bg-brand-purple/5'
+  const mobileBg = isDark ? 'bg-[#0A0F2C]/95 backdrop-blur-2xl border-white/10' : 'bg-white/80 backdrop-blur-2xl border-blue-500/10 shadow-2xl'
+  const mobileLink = isDark ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-700 hover:text-blue-600 hover:bg-blue-600/5'
 
   return (
     <nav
@@ -87,14 +87,12 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   e.target.style.display = 'none';
-                  e.target.parentElement.style.background = 'linear-gradient(135deg, #6366F1, #A855F7)';
+                  e.target.parentElement.style.background = 'linear-gradient(135deg, #3B82F6, #6366F1)';
                   e.target.parentElement.innerHTML = '<span class="text-white font-heading font-extrabold text-xs">Rx</span>';
                 }}
               />
             </div>
-            <span className={`${logoText} hidden md:block font-heading font-bold text-xl tracking-tight transition-colors duration-300`}>
-              <span className="gradient-text-saas">Rudrifix</span>
-            </span>
+
           </a>
 
           {/* Desktop Nav */}
@@ -114,7 +112,7 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className="ml-8 px-8 py-3 text-white font-heading font-bold text-sm rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-105 active:scale-95"
-              style={{ background: 'linear-gradient(135deg, #6366F1, #C084FC)' }}
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)' }}
             >
               Book Consultation
             </a>
@@ -155,7 +153,7 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
               className="block text-center mt-3 px-6 py-3 text-white font-heading font-semibold rounded-full hover:scale-[1.02] transition-transform active:scale-[0.98]"
-              style={{ background: 'linear-gradient(135deg, #6366F1, #C084FC)' }}
+              style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)' }}
             >
               Book Consultation
             </a>

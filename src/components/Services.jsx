@@ -45,8 +45,8 @@ export default function Services() {
           className="text-center mb-16 sm:mb-20"
         >
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-100/80 backdrop-blur-sm mb-6 shadow-sm">
-            <span className="text-purple-700 text-xs font-bold uppercase tracking-[0.15em] font-heading">What We Do</span>
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-100/80 backdrop-blur-sm mb-6 shadow-sm">
+            <span className="text-blue-700 text-xs font-bold uppercase tracking-[0.15em] font-heading">What We Do</span>
           </div>
 
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-[#0f172a] leading-tight mb-5">

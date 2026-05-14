@@ -107,9 +107,9 @@ export default function PrivacyPolicy({ onBack }) {
   ]
 
   return (
-    <div className="min-h-screen text-[#111827] selection:bg-[#7C4DFF]/20 selection:text-[#7C4DFF]" 
+    <div className="min-h-screen text-[#0F172A] selection:bg-blue-500/20 selection:text-blue-600" 
       style={{ 
-        background: 'radial-gradient(circle at top left, rgba(124,77,255,0.08), transparent 30%), radial-gradient(circle at right, rgba(91,140,255,0.08), transparent 30%), #F5F7FF'
+        background: 'radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 30%), radial-gradient(circle at right, rgba(96,165,250,0.08), transparent 30%), #F0F9FF'
       }}>
       
       {/* ─── Header ─── */}
@@ -139,7 +139,7 @@ export default function PrivacyPolicy({ onBack }) {
                 Security & Trust
               </div>
               <h1 className="text-5xl sm:text-7xl font-black tracking-tight leading-[0.9]">
-                Privacy <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #7C4DFF 0%, #5B8CFF 100%)' }}>Policy</span>
+                Privacy <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)' }}>Policy</span>
               </h1>
               <p className="text-[#6B7280] text-lg font-medium leading-relaxed max-w-md">
                 Your privacy is our priority. We are committed to protecting your data and being transparent about our practices.

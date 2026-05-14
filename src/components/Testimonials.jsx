@@ -85,7 +85,7 @@ export default function Testimonials() {
       </div>
 
       {/* Bottom transition to light Audit section */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F9FAFF] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F0F9FF] to-transparent" />
     </section>
   )
 }

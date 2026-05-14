@@ -50,7 +50,7 @@ export default function Process() {
   const [ref, isInView] = useInView({ threshold: 0.1 })
 
   return (
-    <section id="process" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #FAFBFF 0%, #F6F3FF 45%, #EEF4FF 100%)' }}>
+    <section id="process" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 45%, #DBEAFE 100%)' }}>
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-100/30 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/30 blur-[120px] rounded-full pointer-events-none" />

@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
   const [ref, isInView] = useInView({ threshold: 0.1 })
 
   return (
-    <section id="whychoose" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F8F9FF 0%, #F4F2FF 50%, #EEF4FF 100%)' }}>
+    <section id="whychoose" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 50%, #DBEAFE 100%)' }}>
       {/* Background Glows */}
       <div className="absolute top-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full bg-purple-200/20 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-5%] right-[-5%] w-[400px] h-[400px] rounded-full bg-blue-200/20 blur-[100px] pointer-events-none" />

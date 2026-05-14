@@ -111,9 +111,9 @@ export default function TermsAndConditions({ onBack }) {
   ]
 
   return (
-    <div className="min-h-screen text-[#111827] selection:bg-[#7C4DFF]/20 selection:text-[#7C4DFF]" 
+    <div className="min-h-screen text-[#0F172A] selection:bg-blue-500/20 selection:text-blue-600" 
       style={{ 
-        background: 'radial-gradient(circle at top left, rgba(124,77,255,0.08), transparent 30%), radial-gradient(circle at right, rgba(91,140,255,0.08), transparent 30%), #F5F7FF'
+        background: 'radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 30%), radial-gradient(circle at right, rgba(96,165,250,0.08), transparent 30%), #F0F9FF'
       }}>
       
       {/* ─── Header ─── */}
@@ -137,12 +137,12 @@ export default function TermsAndConditions({ onBack }) {
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EDE9FE] border border-[#7C4DFF]/10 text-[#7C4DFF] text-[10px] font-black uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#EFF6FF] border border-[#3B82F6]/10 text-[#3B82F6] text-[10px] font-black uppercase tracking-widest">
                 <Scale size={12} />
                 Agreement
               </div>
-              <h1 className="text-5xl sm:text-7xl font-black tracking-tight leading-[0.9]">
-                Terms & <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #7C4DFF 0%, #D946EF 100%)' }}>Conditions</span>
+               <h1 className="text-5xl sm:text-7xl font-black tracking-tight leading-[0.9]">
+                Terms & <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)' }}>Conditions</span>
               </h1>
               <p className="text-[#6B7280] text-lg font-medium leading-relaxed max-w-md">
                 By using Rudrifix services, you agree to follow our guidelines and terms of service.

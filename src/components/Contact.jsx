@@ -55,7 +55,7 @@ export default function Contact() {
   const inputBorder = "border border-[rgba(99,102,241,0.12)] bg-[rgba(255,255,255,0.7)] focus:border-[#8B5CF6] focus:shadow-[0_0_0_4px_rgba(139,92,246,0.12)]"
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #FAFBFF 0%, #F4F1FF 40%, #EEF4FF 100%)' }}>
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 40%, #DBEAFE 100%)' }}>
       {/* ── Background decorations ── */}
       <div className="absolute top-[-8%] left-[-6%] w-[550px] h-[550px] rounded-full bg-purple-200/20 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-8%] right-[-6%] w-[500px] h-[500px] rounded-full bg-blue-200/20 blur-[110px] pointer-events-none" />
@@ -97,9 +97,9 @@ export default function Contact() {
           className="text-center mb-14"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6" style={{ background: 'rgba(139,92,246,0.12)', backdropFilter: 'blur(12px)', boxShadow: '0 10px 30px rgba(124,58,237,0.12)' }}>
-            <Send size={13} className="text-[#7C3AED]" />
-            <span className="text-[#7C3AED] text-xs font-bold uppercase tracking-[0.08em] font-heading">Get In Touch</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)', boxShadow: '0 10px 30px rgba(59,130,246,0.12)' }}>
+            <Send size={13} className="text-[#3B82F6]" />
+            <span className="text-[#3B82F6] text-xs font-bold uppercase tracking-[0.08em] font-heading">Get In Touch</span>
           </div>
 
           <h2 className="font-heading font-extrabold text-[#0F172A] leading-[1.08] mb-5" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.04em' }}>
@@ -233,7 +233,7 @@ export default function Contact() {
       </div>
 
       {/* Smooth blend to next light section */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#FAFBFF] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#F0F9FF] to-transparent" />
 
       {/* ═══ Thank You Popup Modal ═══ */}
       <AnimatePresence>

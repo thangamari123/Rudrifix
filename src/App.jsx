@@ -1,22 +1,42 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
+
+/* ── Critical path — loaded immediately ── */
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Services from './components/Services'
-import WhyChooseUs from './components/WhyChooseUs'
-import Process from './components/Process'
-import Portfolio from './components/Portfolio'
-import BusinessAudit from './components/BusinessAudit'
-import BudgetPlanner from './components/BudgetPlanner'
-import Contact from './components/Contact'
-import CallToAction from './components/CallToAction'
-import Footer from './components/Footer'
-import WhatsAppButton from './components/WhatsAppButton'
-
-import FloatingContactBar from './components/FloatingContactBar'
 import Preloader from './components/Preloader'
 
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import TermsAndConditions from './pages/TermsAndConditions'
+/* ── Below-fold — lazy loaded after hero renders ── */
+const Services = lazy(() => import('./components/Services'))
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'))
+const Process = lazy(() => import('./components/Process'))
+const Portfolio = lazy(() => import('./components/Portfolio'))
+const BusinessAudit = lazy(() => import('./components/BusinessAudit'))
+const BudgetPlanner = lazy(() => import('./components/BudgetPlanner'))
+const Contact = lazy(() => import('./components/Contact'))
+const CallToAction = lazy(() => import('./components/CallToAction'))
+const Footer = lazy(() => import('./components/Footer'))
+const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
+const FloatingContactBar = lazy(() => import('./components/FloatingContactBar'))
+
+/* ── Legal pages — only loaded on demand ── */
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'))
+
+/* ── Minimal section skeleton while lazy chunks load ── */
+function SectionFallback() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        width: '100%',
+        height: 120,
+        background: 'linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%)',
+        backgroundSize: '400% 100%',
+        animation: 'shimmer 1.4s ease infinite',
+      }}
+    />
+  )
+}
 
 function App() {
   const [currentPage, setCurrentPage] = React.useState('home')
@@ -31,14 +51,30 @@ function App() {
         return (
           <>
             <Hero />
-            <Services />
-            <WhyChooseUs />
-            <Process />
-            <Portfolio />
-            <BusinessAudit />
-            <BudgetPlanner />
-            <Contact />
-            <CallToAction />
+            <Suspense fallback={<SectionFallback />}>
+              <Services />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <WhyChooseUs />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <Process />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <Portfolio />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <BusinessAudit />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <BudgetPlanner />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <Contact />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <CallToAction />
+            </Suspense>
           </>
         )
     }
@@ -54,22 +90,21 @@ function App() {
       />
 
       <main>
-        {renderContent()}
+        <Suspense fallback={<SectionFallback />}>
+          {renderContent()}
+        </Suspense>
       </main>
 
-      <Footer
-        onPrivacyClick={() => setCurrentPage('privacy')}
-        onTermsClick={() => setCurrentPage('terms')}
-      />
-
-      <WhatsAppButton />
-      <FloatingContactBar />
+      <Suspense fallback={null}>
+        <Footer
+          onPrivacyClick={() => setCurrentPage('privacy')}
+          onTermsClick={() => setCurrentPage('terms')}
+        />
+        <WhatsAppButton />
+        <FloatingContactBar />
+      </Suspense>
     </div>
   )
 }
-
-
-
-
 
 export default App

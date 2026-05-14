@@ -4,7 +4,7 @@ import {
   DollarSign, Building2, Layers, PieChart,
   Check, ChevronRight, ChevronLeft,
   Megaphone, Search, Share2, FileText,
-  Plus, Minus, ArrowRight
+  Plus, Minus, ArrowRight, X
 } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
@@ -32,7 +32,7 @@ const barColors = ['#8B5CF6', '#3B82F6', '#22C55E', '#FB923C']
 export default function BudgetPlanner() {
   const [ref, isInView] = useInView({ threshold: 0.05 })
   const [step, setStep] = useState(1)
-  const [budget, setBudget] = useState(40000)
+  const [budget, setBudget] = useState(0)
   const [bizType, setBizType] = useState('')
   const [selectedServices, setSelectedServices] = useState([])
   const [allocations, setAllocations] = useState({})
@@ -86,7 +86,7 @@ export default function BudgetPlanner() {
   const goBack = () => { if (step > 1) { setDirection(-1); setStep(s => s - 1) } }
 
   return (
-    <section id="planner" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #FAFBFF 0%, #F5F3FF 45%, #EEF4FF 100%)' }}>
+    <section id="planner" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 45%, #DBEAFE 100%)' }}>
       {/* Background */}
       <div className="absolute top-[-6%] right-[-6%] w-[500px] h-[500px] rounded-full bg-purple-200/15 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-6%] left-[-6%] w-[400px] h-[400px] rounded-full bg-blue-200/15 blur-[100px] pointer-events-none" />
@@ -102,8 +102,8 @@ export default function BudgetPlanner() {
 
         {/* ═══ Header ═══ */}
         <motion.div initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 shadow-sm" style={{ background: 'rgba(139,92,246,0.12)', backdropFilter: 'blur(12px)' }}>
-            <span className="text-[#7C3AED] text-xs font-bold uppercase tracking-[0.08em] font-heading">Marketing Tools</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 shadow-sm" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)' }}>
+            <span className="text-[#3B82F6] text-xs font-bold uppercase tracking-[0.08em] font-heading">Marketing Tools</span>
           </div>
           <h2 className="font-heading font-extrabold text-[#0F172A] leading-[1.08] mb-5" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)', letterSpacing: '-0.04em' }}>
             How Should You Spend Your{' '}
@@ -165,29 +165,38 @@ export default function BudgetPlanner() {
                       >
                         {fmt(budget)}
                       </motion.p>
-                      <div className="flex items-center gap-2 mt-2 justify-center lg:justify-start">
-                        <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center">
-                          <Check size={12} className="text-emerald-600" />
+                      {budget >= 5000 ? (
+                        <div className="flex items-center gap-2 mt-2 justify-center lg:justify-start">
+                          <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center">
+                            <Check size={12} className="text-emerald-600" />
+                          </div>
+                          <span className="text-emerald-600 text-sm font-medium">Great — your budget is set</span>
                         </div>
-                        <span className="text-emerald-600 text-sm font-medium">Great — your budget is set</span>
-                      </div>
+                      ) : (
+                        <div className="flex items-center gap-2 mt-2 justify-center lg:justify-start">
+                          <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center">
+                            <X size={12} className="text-red-600" />
+                          </div>
+                          <span className="text-red-600 text-sm font-medium">Minimum ₹5,000 required</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Slider */}
                     <div className="relative mb-4">
                       <input
                         type="range"
-                        min={5000}
+                        min={0}
                         max={200000}
                         step={1000}
                         value={budget}
                         onChange={(e) => setBudget(Number(e.target.value))}
                         className="w-full h-3 rounded-full appearance-none cursor-pointer slider-purple"
-                        style={{ background: `linear-gradient(to right, #8B5CF6 0%, #6366F1 ${((budget - 5000) / 195000) * 100}%, rgba(99,102,241,0.12) ${((budget - 5000) / 195000) * 100}%, rgba(99,102,241,0.12) 100%)` }}
+                        style={{ background: `linear-gradient(to right, #8B5CF6 0%, #6366F1 ${(budget / 200000) * 100}%, rgba(99,102,241,0.12) ${(budget / 200000) * 100}%, rgba(99,102,241,0.12) 100%)` }}
                       />
                     </div>
                     <div className="flex justify-between text-xs text-[#94A3B8] font-medium">
-                      <span>₹5,000</span>
+                      <span>₹0</span>
                       <span>₹2,00,000</span>
                     </div>
                   </div>
@@ -367,16 +376,33 @@ export default function BudgetPlanner() {
           </button>
 
           {step < 4 ? (
-            <button
-              onClick={goNext}
-              disabled={!canNext()}
-              className={`group flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 ${canNext() ? 'hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]' : 'opacity-40 cursor-not-allowed'
-                }`}
-              style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)', boxShadow: canNext() ? '0 16px 40px rgba(99,102,241,0.25)' : 'none' }}
-            >
-              Continue
-              <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            <div className="flex items-center gap-4">
+              {step === 1 && budget < 5000 && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  className="hidden sm:flex items-center gap-3 px-4 py-3 rounded-2xl bg-red-50 border border-red-100 shadow-sm"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center">
+                    <Check size={14} className="text-red-500 rotate-45" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-red-600 text-[10px] font-black uppercase tracking-widest leading-none">Min Requirement</span>
+                    <span className="text-[#0F172A] text-xs font-bold">₹5,000 required</span>
+                  </div>
+                </motion.div>
+              )}
+              <button
+                onClick={goNext}
+                disabled={!canNext()}
+                className={`group flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 ${canNext() ? 'hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]' : 'opacity-40 cursor-not-allowed'
+                  }`}
+                style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)', boxShadow: canNext() ? '0 16px 40px rgba(99,102,241,0.25)' : 'none' }}
+              >
+                Continue
+                <ChevronRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
           ) : (
             <a
               href="#contact"
@@ -392,7 +418,7 @@ export default function BudgetPlanner() {
       </div>
 
       {/* Smooth blend to next light section */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FAFBFF] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#F0F9FF] to-transparent" />
     </section>
   )
 }
