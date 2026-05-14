@@ -31,16 +31,29 @@
     content="Rudrifix is a digital marketing agency in Thoothukudi offering Meta Ads, website development, and photo/video to help businesses grow in Tamil Nadu." />
   <meta name="twitter:image" content="https://rudrifix.com/og-image.jpg" />
 
-  <!-- Google Fonts -->
+  <!-- Preconnect to critical domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="/rudrifix logo.webp" as="image" type="image/webp" />
+
+  <!-- Google Fonts with Swap display -->
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&family=Satisfy&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;700&family=Satisfy&display=swap" rel="stylesheet" />
+  </noscript>
 
-  <!-- Favicon -->
+  <!-- Favicon & PWA -->
   <link rel="icon" type="image/webp" href="/rudrifix logo.webp" />
   <link rel="apple-touch-icon" href="/rudrifix logo.webp" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#3B82F6" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Rudrifix" />
 
 </head>
 

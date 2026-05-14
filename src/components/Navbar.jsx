@@ -19,25 +19,33 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-      /* Check if navbar is over a light section */
-      const lightSections = ['#home', '#services', '#whychoose', '#process', '#work', '#audit', '#planner', '#contact', '#cta']
-      const scrollY = window.scrollY + 60 // account for navbar height
-      let overLight = false
-      for (const sel of lightSections) {
-        const el = document.querySelector(sel)
-        if (el) {
-          const top = el.offsetTop
-          const bottom = top + el.offsetHeight
-          if (scrollY >= top && scrollY < bottom) {
-            overLight = true
-            break
-          }
-        }
-      }
-      setPastHero(!overLight)
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    /* Use IntersectionObserver instead of manual scroll tracking for section theme */
+    const observerOptions = {
+      root: null,
+      rootMargin: '-60px 0px 0px 0px',
+      threshold: 0
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Check if the section is a light one
+          const lightSections = ['home', 'services', 'whychoose', 'process', 'work', 'audit', 'planner', 'contact', 'cta']
+          setPastHero(!lightSections.includes(entry.target.id))
+        }
+      })
+    }, observerOptions)
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => observer.observe(section))
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      observer.disconnect()
+    }
   }, [])
 
   const handleNavClick = (e, href) => {
@@ -85,6 +93,8 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
                 src="/rudrifix logo.webp"
                 alt="Rudrifix Logo"
                 className="w-full h-full object-cover"
+                fetchpriority="high"
+                loading="eager"
                 onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.parentElement.style.background = 'linear-gradient(135deg, #3B82F6, #6366F1)';

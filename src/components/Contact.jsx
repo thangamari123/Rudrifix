@@ -109,7 +109,7 @@ export default function Contact() {
           </h2>
 
           <p className="text-[#64748B] text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            Fill out the form below or email us directly at <a href="mailto:rudrifix@gmail.com" className="text-brand-purple font-bold hover:underline">rudrifix@gmail.com</a>. We'll get back to you within 24 hours.
+            Fill out the form below and we'll get back to you within 24 hours
           </p>
         </motion.div>
 

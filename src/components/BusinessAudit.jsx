@@ -232,7 +232,7 @@ export default function BusinessAudit() {
               }
             }}
             disabled={!allAnswered}
-            className={`w-full py-4 sm:py-5 font-black text-base sm:text-lg rounded-2xl transition-all duration-200 shadow-xl active:scale-[0.98] flex items-center justify-center gap-3 ${
+            className={`w-full py-4 sm:py-5 font-black text-[13px] sm:text-lg rounded-2xl transition-all duration-200 shadow-xl active:scale-[0.98] flex items-center justify-center gap-3 ${
               allAnswered
                 ? 'text-white hover:opacity-90 hover:shadow-2xl'
                 : 'bg-slate-100 text-slate-400 cursor-not-allowed shadow-none'
@@ -243,7 +243,7 @@ export default function BusinessAudit() {
                 : {}
             }
           >
-            {!allAnswered && <Lock size={18} />}
+            {!allAnswered && <Lock size={16} />}
             {allAnswered ? 'Get My Free Analysis' : 'Complete All Questions to Unlock'}
             {allAnswered && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
           </button>

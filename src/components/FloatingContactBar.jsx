@@ -15,6 +15,7 @@ const FloatingContactBar = () => {
         <motion.a
           href="tel:+918300227525"
           whileTap={{ scale: 0.95 }}
+          aria-label="Call Rudrifix"
           className="flex-1 h-full flex flex-col items-center justify-center gap-[4px] transition-all"
         >
           <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
@@ -29,6 +30,7 @@ const FloatingContactBar = () => {
         <motion.a
           href="https://wa.me/918300227525"
           whileTap={{ scale: 0.95 }}
+          aria-label="WhatsApp Rudrifix"
           className="flex-1 h-full flex flex-col items-center justify-center gap-[4px] transition-all"
         >
           <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center">
@@ -45,6 +47,7 @@ const FloatingContactBar = () => {
             document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
           }}
           whileTap={{ scale: 0.98 }}
+          aria-label="Book a free consultation call"
           className="flex-[1.2] h-full relative"
         >
           <div className="absolute inset-1.5 rounded-[14px] bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] flex items-center justify-center gap-2 overflow-hidden shadow-lg">

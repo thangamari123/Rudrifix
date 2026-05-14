@@ -51,27 +51,35 @@ function App() {
         return (
           <>
             <Hero />
-            <Suspense fallback={<SectionFallback />}>
-              <Services />
-            </Suspense>
-            <Suspense fallback={<SectionFallback />}>
-              <WhyChooseUs />
-            </Suspense>
-            <Suspense fallback={<SectionFallback />}>
-              <Process />
-            </Suspense>
-            <Suspense fallback={<SectionFallback />}>
-              <Portfolio />
-            </Suspense>
+            
             <Suspense fallback={<SectionFallback />}>
               <BusinessAudit />
             </Suspense>
+
+            <Suspense fallback={<SectionFallback />}>
+              <Services />
+            </Suspense>
+
+            <Suspense fallback={<SectionFallback />}>
+              <WhyChooseUs />
+            </Suspense>
+
+            <Suspense fallback={<SectionFallback />}>
+              <Portfolio />
+            </Suspense>
+
+            <Suspense fallback={<SectionFallback />}>
+              <Process />
+            </Suspense>
+
             <Suspense fallback={<SectionFallback />}>
               <BudgetPlanner />
             </Suspense>
+
             <Suspense fallback={<SectionFallback />}>
               <Contact />
             </Suspense>
+
             <Suspense fallback={<SectionFallback />}>
               <CallToAction />
             </Suspense>

@@ -74,6 +74,7 @@ export default function WhatsAppButton() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        aria-label="Contact Support"
         className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl shadow-indigo-500/20 border border-slate-100 relative group overflow-hidden"
       >
         {/* Brand Logo */}
