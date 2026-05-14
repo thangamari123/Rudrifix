@@ -26,7 +26,7 @@ export default function Services() {
   const [ref, isInView] = useInView({ threshold: 0.05 })
 
   return (
-    <section id="services" className="relative overflow-hidden services-light-bg py-16 sm:py-20">
+    <section id="services" className="relative overflow-hidden services-light-bg pt-8 pb-16 sm:pt-10 sm:pb-20">
       {/* Background decorative glows */}
       <div className="services-glow bg-purple-200" style={{ top: '-10%', left: '-8%' }} />
       <div className="services-glow bg-blue-200" style={{ bottom: '-10%', right: '-8%' }} />

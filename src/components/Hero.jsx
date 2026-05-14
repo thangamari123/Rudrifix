@@ -61,7 +61,7 @@ export default function Hero() {
 
   const currentService = services[serviceIndex];
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden hero-light-bg">
+    <section id="home" className="relative overflow-hidden hero-light-bg">
       {/* Dot grid overlay */}
       <div className="absolute inset-0 hero-light-grid" />
 
@@ -90,7 +90,7 @@ export default function Hero() {
       </div>
 
       {/* ─── Main Content ─── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
           {/* ════════ LEFT COLUMN ════════ */}

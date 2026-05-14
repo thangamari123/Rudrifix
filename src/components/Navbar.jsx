@@ -154,10 +154,10 @@ export default function Navbar({ onPrivacyClick, onTermsClick, setCurrentPage })
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="block text-center mt-3 px-6 py-3 text-white font-heading font-semibold rounded-full"
+              className="block text-center mt-3 px-6 py-3 text-white font-heading font-semibold rounded-full hover:scale-[1.02] transition-transform active:scale-[0.98]"
               style={{ background: 'linear-gradient(135deg, #6366F1, #C084FC)' }}
             >
-              Get a Free Quote
+              Book Consultation
             </a>
 
 
