@@ -12,14 +12,14 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #E2E8F0;
   background: #050510;
-  zoom: 0.95;
+  zoom: 0.85;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -164,6 +164,42 @@ body {
   to {
     stroke-dashoffset: -20;
   }
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.3)); }
+  50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.6)); }
+}
+
+@keyframes preloaderLetter {
+  from { transform: translateY(30px) scale(0.8); opacity: 0; filter: blur(15px); }
+  to { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes preloaderProgress {
+  0% { width: 0%; opacity: 0.3; }
+  100% { width: 100%; opacity: 1; }
+}
+
+@keyframes preloaderZoom {
+  0% { transform: scale(0); opacity: 0; filter: blur(20px); }
+  70% { transform: scale(1.15); opacity: 1; filter: blur(0); }
+  100% { transform: scale(1); opacity: 1; filter: blur(0); }
+}
+
+@keyframes preloaderScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .float-slow {

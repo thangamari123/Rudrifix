@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 
 import FloatingContactBar from './components/FloatingContactBar'
+import Preloader from './components/Preloader'
 
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen">
+      <Preloader />
       <Navbar
         onPrivacyClick={() => setCurrentPage('privacy')}
         onTermsClick={() => setCurrentPage('terms')}
