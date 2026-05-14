@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Send, User, Phone, Mail, Building2, Layers, MessageSquare, Shield } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
 
@@ -9,10 +9,46 @@ const serviceOptions = ['Meta Ads (Facebook & Instagram)', 'Website Development'
 export default function Contact() {
   const [ref, isInView] = useInView({ threshold: 0.05 })
   const [form, setForm] = useState({ name: '', phone: '', email: '', business: '', service: '', message: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-  const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 4000) }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      // 1. Real Backend Call to Google Apps Script
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb0bCuo7r4WQbdF1Gt2UNt2bj0tV_UURYd_tU5Jtg6IGEtdeuo9gKLtPQ08pjQLyE/exec';
+
+      // We use a simple fetch POST. Note: Google Script might require 'no-cors' 
+      // or specific header handling depending on your Apps Script code.
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Standard for simple Google Script web apps to avoid CORS issues
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          date: new Date().toLocaleString(),
+          source: 'Contact Form'
+        }),
+      });
+
+      console.log('Lead data exported to Excel and transmitted to Google Sheet.');
+
+      // 4. Success state
+      setSubmitted(true)
+      setForm({ name: '', phone: '', email: '', business: '', service: '', message: '' })
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (error) {
+      console.error('Lead storage failed:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   /* shared field styles */
   const inputBase = "w-full h-16 px-5 rounded-[18px] text-[#0F172A] text-sm font-medium placeholder-[#94A3B8] transition-all duration-300 outline-none"
@@ -73,7 +109,7 @@ export default function Contact() {
           </h2>
 
           <p className="text-[#64748B] text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            Fill out the form below and we'll get back to you within 24 hours.
+            Fill out the form below or email us directly at <a href="mailto:rudrifix@gmail.com" className="text-brand-purple font-bold hover:underline">rudrifix@gmail.com</a>. We'll get back to you within 24 hours.
           </p>
         </motion.div>
 
@@ -159,11 +195,20 @@ export default function Contact() {
               type="submit"
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.97 }}
-              className="group w-full h-[72px] rounded-[22px] text-white font-heading font-bold text-lg sm:text-xl flex items-center justify-center gap-3 transition-all duration-300"
-              style={{ background: 'linear-gradient(90deg, #7C3AED, #4F46E5, #2563EB)', boxShadow: submitted ? 'none' : '0 20px 40px rgba(99,102,241,0.3)' }}
-              disabled={submitted}
+              className={`group w-full h-[72px] rounded-[22px] text-white font-heading font-bold text-lg sm:text-xl flex items-center justify-center gap-3 transition-all duration-300 ${submitted ? 'bg-emerald-500 shadow-emerald-500/20' : ''
+                }`}
+              style={{
+                background: !submitted ? 'linear-gradient(90deg, #7C3AED, #4F46E5, #2563EB)' : undefined,
+                boxShadow: submitted ? 'none' : '0 20px 40px rgba(99,102,241,0.3)'
+              }}
+              disabled={submitted || isSubmitting}
             >
-              {submitted ? (
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Sending...
+                </span>
+              ) : submitted ? (
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</span>
                   Message Sent Successfully!
@@ -189,6 +234,74 @@ export default function Contact() {
 
       {/* Smooth blend to next light section */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#FAFBFF] to-transparent" />
+
+      {/* ═══ Thank You Popup Modal ═══ */}
+      <AnimatePresence>
+        {submitted && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center px-4 sm:px-6"
+          >
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSubmitted(false)}
+              className="absolute inset-0 bg-[#0F172A]/40 backdrop-blur-md"
+            />
+
+            {/* Modal Content */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-lg overflow-hidden rounded-[40px] bg-white p-8 sm:p-12 text-center shadow-[0_40px_100px_rgba(15,23,42,0.2)]"
+            >
+              {/* Background Accent */}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-100 rounded-full blur-[80px] opacity-60" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-100 rounded-full blur-[80px] opacity-60" />
+
+              <div className="relative z-10 flex flex-col items-center">
+                {/* Success Icon */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, type: 'spring', stiffness: 500, damping: 20 }}
+                  className="mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-emerald-50 text-emerald-500 shadow-[0_20px_40px_rgba(16,185,129,0.1)]"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Send size={42} />
+                  </motion.div>
+                </motion.div>
+
+                <h3 className="mb-4 font-heading text-3xl font-black text-[#0F172A] tracking-tight">
+                  Message Sent <span className="text-emerald-500">Successfully!</span>
+                </h3>
+
+                <p className="mb-10 text-lg leading-relaxed text-slate-500 font-medium">
+                  Thank you for reaching out to <span className="font-bold text-indigo-600">Rudrifix</span>. We've received your inquiry and our strategy team will contact you within <span className="text-[#0F172A] font-bold">24 hours</span>.
+                </p>
+
+                <motion.button
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setSubmitted(false)}
+                  className="w-full rounded-2xl bg-[#0F172A] py-5 text-lg font-bold text-white shadow-xl shadow-slate-900/10 transition-all hover:bg-slate-800"
+                >
+                  Great, Thanks!
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

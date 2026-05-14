@@ -1,13 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Zap, CalendarDays, MessageCircle, Shield, Clock, ThumbsUp } from 'lucide-react'
+import { Zap, CalendarDays, MessageCircle } from 'lucide-react'
+
 import { useInView } from '../hooks/useInView'
 
-const trustItems = [
-  { icon: Shield, text: '100% Confidential' },
-  { icon: Clock, text: 'Quick Response' },
-  { icon: ThumbsUp, text: 'No Obligations' },
-]
 
 export default function CallToAction() {
   const [ref, isInView] = useInView({ threshold: 0.1 })
@@ -129,28 +125,7 @@ export default function CallToAction() {
           </motion.a>
         </motion.div>
 
-        {/* ═══ Trust Indicators ═══ */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
-        >
-          {trustItems.map((item, i) => (
-            <motion.div
-              key={item.text}
-              initial={{ opacity: 0, y: 12 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.4 + i * 0.08 }}
-              className="flex items-center gap-3"
-            >
-              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: 'rgba(139,92,246,0.08)' }}>
-                <item.icon size={18} className="text-[#8B5CF6]" />
-              </div>
-              <span className="text-[#475569] text-sm sm:text-base font-medium">{item.text}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+
       </div>
 
       {/* Bottom transition to light footer */}

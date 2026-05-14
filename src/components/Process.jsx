@@ -67,7 +67,7 @@ export default function Process() {
 
             <span className="text-indigo-600 text-xs font-black uppercase tracking-widest font-heading">Our Workflow</span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -133,7 +133,7 @@ export default function Process() {
         {/* Specialized Mobile Connector */}
         <div className="lg:hidden flex flex-col items-center mt-8 space-y-4">
           <div className="w-px h-12 bg-gradient-to-b from-indigo-200 to-transparent" />
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 5, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="text-indigo-400"

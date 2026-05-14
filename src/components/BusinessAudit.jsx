@@ -153,10 +153,20 @@ export default function BusinessAudit() {
           </div>
 
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full py-5 bg-[#0F172A] text-white font-black text-lg rounded-2xl transition-all hover:bg-indigo-600 shadow-xl shadow-indigo-500/10 active:scale-[0.98]"
+            onClick={() => {
+              if (allAnswered) {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            disabled={!allAnswered}
+            className={`w-full py-5 font-black text-lg rounded-2xl transition-all shadow-xl active:scale-[0.98] flex items-center justify-center gap-3 ${allAnswered
+              ? 'bg-indigo-600 text-white shadow-indigo-500/20 hover:bg-indigo-700'
+              : 'bg-slate-200 text-slate-400 cursor-not-allowed shadow-none'
+              }`}
           >
-            Get Detailed Analysis
+            {!allAnswered && <Lock size={20} />}
+            {allAnswered ? 'Get Detailed Analysis' : 'Complete All Questions'}
+            {allAnswered && <ArrowRight size={20} />}
           </button>
         </motion.div>
       </div>

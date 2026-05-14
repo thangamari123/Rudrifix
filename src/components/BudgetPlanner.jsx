@@ -120,13 +120,12 @@ export default function BudgetPlanner() {
             <React.Fragment key={s.id}>
               <button
                 onClick={() => { if (s.id <= step || canNext()) { setDirection(s.id > step ? 1 : -1); setStep(s.id) } }}
-                className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 ${
-                  s.id === step
-                    ? 'text-white shadow-lg shadow-indigo-300/30 scale-[1.02]'
-                    : s.id < step
-                      ? 'text-[#8B5CF6] bg-purple-50'
-                      : 'text-[#94A3B8] bg-white/50'
-                }`}
+                className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 ${s.id === step
+                  ? 'text-white shadow-lg shadow-indigo-300/30 scale-[1.02]'
+                  : s.id < step
+                    ? 'text-[#8B5CF6] bg-purple-50'
+                    : 'text-[#94A3B8] bg-white/50'
+                  }`}
                 style={s.id === step ? { background: 'linear-gradient(135deg, #8B5CF6, #6366F1)' } : {}}
               >
                 <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${s.id === step ? 'bg-white/20' : s.id < step ? 'bg-purple-100' : 'bg-slate-100'}`}>
@@ -219,11 +218,10 @@ export default function BudgetPlanner() {
                     <button
                       key={type}
                       onClick={() => setBizType(type)}
-                      className={`px-6 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${
-                        bizType === type
-                          ? 'text-white shadow-lg shadow-blue-400/25 scale-[1.02]'
-                          : 'bg-white text-[#64748B] border border-indigo-100/50 hover:border-indigo-200 hover:text-indigo-600 hover:shadow-md'
-                      }`}
+                      className={`px-6 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${bizType === type
+                        ? 'text-white shadow-lg shadow-blue-400/25 scale-[1.02]'
+                        : 'bg-white text-[#64748B] border border-indigo-100/50 hover:border-indigo-200 hover:text-indigo-600 hover:shadow-md'
+                        }`}
                       style={bizType === type ? { background: 'linear-gradient(135deg, #3B82F6, #2563EB)' } : {}}
                     >
                       {type}
@@ -250,11 +248,10 @@ export default function BudgetPlanner() {
                       <button
                         key={svc.id}
                         onClick={() => toggleService(svc.id)}
-                        className={`relative rounded-3xl p-6 text-left transition-all duration-350 hover:-translate-y-1 ${
-                          active
-                            ? 'text-white shadow-2xl scale-[1.01]'
-                            : 'bg-white/90 border border-indigo-50 hover:shadow-lg hover:border-indigo-100'
-                        }`}
+                        className={`relative rounded-3xl p-6 text-left transition-all duration-350 hover:-translate-y-1 ${active
+                          ? 'text-white shadow-2xl scale-[1.01]'
+                          : 'bg-white/90 border border-indigo-50 hover:shadow-lg hover:border-indigo-100'
+                          }`}
                         style={active ? { background: `linear-gradient(135deg, ${svc.color}, #4F46E5)`, boxShadow: `0 20px 50px ${svc.color}30` } : {}}
                       >
                         <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${active ? 'bg-white/20' : 'bg-gradient-to-br ' + svc.gradient + ' shadow-md'}`}>
@@ -362,9 +359,8 @@ export default function BudgetPlanner() {
         <div className="flex items-center justify-between gap-4">
           <button
             onClick={goBack}
-            className={`flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 ${
-              step === 1 ? 'opacity-0 pointer-events-none' : 'bg-white text-[#64748B] shadow-md hover:shadow-lg hover:-translate-y-0.5'
-            }`}
+            className={`flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 ${step === 1 ? 'opacity-0 pointer-events-none' : 'bg-white text-[#64748B] shadow-md hover:shadow-lg hover:-translate-y-0.5'
+              }`}
           >
             <ChevronLeft size={16} />
             Back
@@ -374,9 +370,8 @@ export default function BudgetPlanner() {
             <button
               onClick={goNext}
               disabled={!canNext()}
-              className={`group flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 ${
-                canNext() ? 'hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]' : 'opacity-40 cursor-not-allowed'
-              }`}
+              className={`group flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-bold text-white transition-all duration-300 ${canNext() ? 'hover:scale-[1.02] hover:shadow-2xl active:scale-[0.98]' : 'opacity-40 cursor-not-allowed'
+                }`}
               style={{ background: 'linear-gradient(135deg, #8B5CF6, #3B82F6)', boxShadow: canNext() ? '0 16px 40px rgba(99,102,241,0.25)' : 'none' }}
             >
               Continue

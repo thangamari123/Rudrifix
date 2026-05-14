@@ -40,7 +40,26 @@ const features = [
 
 
 
+/* ───────── Service highlights ───────── */
+const services = [
+  { text: 'Digital Strategy', color: 'from-blue-600 to-indigo-600', bg: 'bg-blue-50' },
+  { text: 'Meta Ads Growth', color: 'from-indigo-600 to-purple-600', bg: 'bg-indigo-50' },
+  { text: 'Premium Branding', color: 'from-purple-600 to-pink-600', bg: 'bg-purple-50' },
+  { text: 'Modern Web Apps', color: 'from-pink-600 to-rose-600', bg: 'bg-pink-50' },
+  { text: 'Content Creation', color: 'from-emerald-600 to-teal-600', bg: 'bg-emerald-50' }
+];
+
 export default function Hero() {
+  const [serviceIndex, setServiceIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setServiceIndex((prev) => (prev + 1) % services.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const currentService = services[serviceIndex];
   return (
     <section id="home" className="relative min-h-screen overflow-hidden hero-light-bg">
       {/* Dot grid overlay */}
@@ -76,17 +95,6 @@ export default function Hero() {
 
           {/* ════════ LEFT COLUMN ════════ */}
           <div className="lg:pr-8">
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full saas-glass mb-8"
-            >
-              <span className="text-indigo-600 text-sm font-semibold tracking-wide font-heading">
-                360° Digital Growth Agency
-              </span>
-            </motion.div>
 
             {/* Headline */}
             <motion.h1
@@ -95,7 +103,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="hero-heading mb-6"
             >
-              360° Solutions Built To <span className="gradient-text-saas">Scale Your Brand</span>
+              <span className="font-['Satisfy'] text-indigo-600 block mb-2 text-4xl sm:text-5xl -rotate-2">360° Solutions</span>
+              Built To <span className="gradient-text-saas">Scale Your Brand</span>
             </motion.h1>
 
             {/* Modern Perspective Flip Service Flow */}
@@ -121,48 +130,26 @@ export default function Hero() {
                 >
                   We help you master
                 </motion.p>
-                
+
                 <div className="relative h-14 sm:h-16 overflow-hidden flex items-center">
                   <AnimatePresence mode="wait">
-                    {(() => {
-                      const services = [
-                        { text: 'Digital Strategy', color: 'from-blue-600 to-indigo-600', bg: 'bg-blue-50' },
-                        { text: 'Meta Ads Growth', color: 'from-indigo-600 to-purple-600', bg: 'bg-indigo-50' },
-                        { text: 'Premium Branding', color: 'from-purple-600 to-pink-600', bg: 'bg-purple-50' },
-                        { text: 'Modern Web Apps', color: 'from-pink-600 to-rose-600', bg: 'bg-pink-50' },
-                        { text: 'Content Creation', color: 'from-emerald-600 to-teal-600', bg: 'bg-emerald-50' }
-                      ];
-                      const [index, setIndex] = React.useState(0);
-                      
-                      React.useEffect(() => {
-                        const timer = setInterval(() => {
-                          setIndex((prev) => (prev + 1) % services.length);
-                        }, 3000);
-                        return () => clearInterval(timer);
-                      }, []);
-
-                      const current = services[index];
-                      
-                      return (
-                        <motion.div
-                          key={index}
-                          initial={{ y: 40, opacity: 0, rotateX: -90 }}
-                          animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                          exit={{ y: -40, opacity: 0, rotateX: 90 }}
-                          transition={{ 
-                            type: "spring",
-                            stiffness: 100,
-                            damping: 15,
-                            duration: 0.8
-                          }}
-                          className={`px-6 py-2.5 rounded-2xl ${current.bg} border border-white/50 shadow-sm flex items-center justify-center`}
-                        >
-                          <span className={`text-2xl sm:text-3xl font-black bg-gradient-to-r ${current.color} bg-clip-text text-fill-transparent text-transparent tracking-tight`}>
-                            {current.text}
-                          </span>
-                        </motion.div>
-                      );
-                    })()}
+                    <motion.div
+                      key={serviceIndex}
+                      initial={{ y: 40, opacity: 0, rotateX: -90 }}
+                      animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                      exit={{ y: -40, opacity: 0, rotateX: 90 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 15,
+                        duration: 0.8
+                      }}
+                      className={`px-6 py-2.5 rounded-2xl ${currentService.bg} border border-white/50 shadow-sm flex items-center justify-center`}
+                    >
+                      <span className={`text-2xl sm:text-3xl font-black bg-gradient-to-r ${currentService.color} bg-clip-text text-fill-transparent text-transparent tracking-tight`}>
+                        {currentService.text}
+                      </span>
+                    </motion.div>
                   </AnimatePresence>
                 </div>
               </div>
@@ -208,118 +195,151 @@ export default function Hero() {
                 See Our Work
               </a>
             </motion.div>
-
-
           </div>
 
-          {/* ════════ RIGHT COLUMN — Analytics Dashboard ════════ */}
-          <div className="hidden lg:flex relative justify-end">
-            <motion.div
-              initial={{ opacity: 0, x: 40, rotate: 2 }}
-              animate={{ opacity: 1, x: 0, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative w-full max-w-md"
-            >
-              {/* Main Analytics Card */}
-              <div className="saas-glass-strong rounded-3xl p-6 sm:p-8 float-slow">
-                {/* Card header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <p className="text-slate-400 text-xs font-medium uppercase tracking-wider">Business Growth</p>
-                    <p className="text-slate-800 text-2xl font-heading font-extrabold mt-1">+200%</p>
-                  </div>
-                  <div className="px-3 py-1.5 rounded-full text-xs font-bold text-white flex items-center gap-1" style={{ background: 'linear-gradient(135deg, #6366F1, #A855F7)' }}>
-                    <TrendingUp size={12} />
-                    2X Growth
-                  </div>
-                </div>
+          {/* ════════ RIGHT COLUMN — Opening 3D Laptop ════════ */}
+          <div className="hidden lg:flex relative h-[650px] items-center justify-center perspective-[2000px]">
+            {/* Ambient Atmosphere */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-indigo-500/5 blur-[100px] rounded-full" />
 
-                {/* Chart */}
-                <div className="mb-4">
-                  <GrowthChart />
-                </div>
+            <div className="relative w-full h-full flex items-center justify-center transform-style-3d">
 
-                {/* Chart labels */}
-                <div className="flex justify-between text-[10px] text-slate-400 font-medium px-1">
-                  {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map(m => (
-                    <span key={m}>{m}</span>
+              {/* Laptop Base (Keyboard) */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotateX: 15 }}
+                animate={{ opacity: 1, y: 0, rotateX: 15 }}
+                transition={{ duration: 1.2 }}
+                className="relative z-10 w-[500px] h-[320px] bg-slate-800 rounded-b-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] border-t-[4px] border-slate-700 overflow-hidden"
+              >
+                {/* Keyboard Mockup */}
+                <div className="p-8 grid grid-cols-12 gap-2 opacity-20">
+                  {Array.from({ length: 48 }).map((_, i) => (
+                    <div key={i} className="h-4 bg-white rounded-sm" />
                   ))}
                 </div>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-32 h-20 bg-slate-700/50 rounded-xl" />
+              </motion.div>
 
-                {/* Mini stats row */}
-                <div className="grid grid-cols-3 gap-3 mt-6">
-                  {[
-                    { label: 'Impressions', value: '2.4M', change: '+34%' },
-                    { label: 'Clicks', value: '180K', change: '+28%' },
-                    { label: 'Conversions', value: '12.5K', change: '+52%' },
-                  ].map(s => (
-                    <div key={s.label} className="bg-slate-50/80 rounded-2xl p-3 text-center">
-                      <p className="text-slate-400 text-[10px] font-medium">{s.label}</p>
-                      <p className="text-slate-800 text-base font-heading font-bold mt-0.5">{s.value}</p>
-                      <p className="text-emerald-500 text-[10px] font-semibold mt-0.5">{s.change}</p>
+              {/* Laptop Lid (Screen) */}
+              <motion.div
+                initial={{ rotateX: 95, opacity: 0 }}
+                animate={{ rotateX: -15, opacity: 1 }}
+                transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+                style={{ transformOrigin: 'bottom' }}
+                className="absolute bottom-[320px] z-20 w-[500px] h-[340px] bg-slate-900 rounded-t-3xl p-3 shadow-2xl border-[1px] border-white/10"
+              >
+                {/* Screen Content — Real Campaign (Meta Ads Manager Style) */}
+                <div className="w-full h-full bg-white rounded-2xl overflow-hidden relative group">
+                  <div className="absolute inset-0 bg-[#f0f2f5] p-6 flex flex-col">
+                    {/* Top Bar */}
+                    <div className="flex justify-between items-center mb-6 bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-[#1877F2] flex items-center justify-center text-white">
+                          <Target size={18} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-black text-slate-800 leading-tight">Meta Ads Manager</p>
+                          <p className="text-[8px] font-bold text-slate-400">Scale Strategy • 2026</p>
+
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-600 text-[8px] font-black border border-emerald-100 flex items-center gap-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          ACTIVE
+                        </div>
+                        <div className="px-2 py-0.5 rounded-md bg-slate-50 text-slate-500 text-[8px] font-black border border-slate-100">
+                          BID: AUTO
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* ── Floating Widget: Leads Generated ── */}
+                    {/* Main Metrics Grid */}
+                    <div className="grid grid-cols-3 gap-3 mb-6">
+                      {[
+                        { label: 'Spend', value: '$4,280', color: 'slate' },
+                        { label: 'ROAS', value: '5.2x', color: 'indigo' },
+                        { label: 'CTR', value: '2.84%', color: 'emerald' }
+                      ].map((stat, i) => (
+                        <div key={i} className="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                          <p className="text-[8px] font-bold text-slate-400 uppercase mb-1">{stat.label}</p>
+                          <p className={`text-sm font-black text-${stat.color}-600`}>{stat.value}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Performance Graph */}
+                    <div className="flex-1 bg-white rounded-xl border border-slate-100 shadow-sm p-4 flex flex-col">
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-[9px] font-black text-slate-800">Conversion Trend</span>
+                        <div className="flex gap-2">
+                          <div className="w-2 h-2 rounded-full bg-[#1877F2]" />
+                          <div className="w-2 h-2 rounded-full bg-slate-200" />
+                        </div>
+                      </div>
+                      <div className="flex-1 flex items-end gap-1 px-1">
+                        {[30, 45, 60, 40, 75, 90, 55, 80, 95, 70, 85, 100].map((h, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ height: 0 }}
+                            animate={{ height: `${h}%` }}
+                            transition={{ duration: 1, delay: 1.5 + i * 0.05 }}
+                            className="flex-1 bg-[#1877F2] rounded-t-sm opacity-80"
+                          />
+                        ))}
+                      </div>
+                      <div className="mt-2 pt-2 border-t border-slate-50 flex justify-between text-[7px] font-black text-slate-400">
+                        <span>MON</span>
+                        <span>WED</span>
+                        <span>FRI</span>
+                        <span>SUN</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Glass Shimmer on Screen */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/5 pointer-events-none" />
+                </div>
+
+                {/* Laptop Lid Back Glow */}
+                <div className="absolute -z-10 top-0 left-0 w-full h-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.div>
+
+              {/* Breakout Widgets (Floating around laptop) */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className="absolute -left-8 sm:-left-12 top-12 saas-glass-widget rounded-2xl px-4 py-3 float-medium z-20"
+                initial={{ opacity: 0, x: -150, y: 0 }}
+                animate={{ opacity: 1, x: -260, y: -40 }}
+                transition={{ duration: 1, delay: 2 }}
+                className="absolute z-40 saas-glass-strong rounded-3xl p-6 w-60 shadow-2xl float-medium"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #6366F1, #A855F7)' }}>
-                    <Zap size={18} className="text-white" />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500 flex items-center justify-center text-white">
+                    <Zap size={24} />
                   </div>
                   <div>
-                    <p className="text-slate-400 text-[10px] font-medium">Leads Generated</p>
-                    <p className="text-slate-800 text-lg font-heading font-bold">1,847</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">ROI Boost</p>
+                    <p className="text-xl font-black text-slate-800">12.5x</p>
                   </div>
                 </div>
               </motion.div>
 
-              {/* ── Floating Widget: Ad ROAS ── */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className="absolute -right-4 sm:-right-8 bottom-32 saas-glass-widget rounded-2xl px-4 py-3 float-fast z-20"
+                initial={{ opacity: 0, x: 150, y: 100 }}
+                animate={{ opacity: 1, x: 280, y: 140 }}
+                transition={{ duration: 1, delay: 2.2 }}
+                className="absolute z-40 saas-glass rounded-3xl p-6 w-56 shadow-2xl float-fast"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-                    <ArrowUpRight size={18} className="text-emerald-600" />
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+                    <BarChart3 size={20} />
                   </div>
-                  <div>
-                    <p className="text-slate-400 text-[10px] font-medium">Ad ROAS</p>
-                    <p className="text-slate-800 text-lg font-heading font-bold">4.8x</p>
-                  </div>
+                  <span className="text-[10px] font-black text-slate-800 uppercase tracking-widest">Market Share</span>
+                </div>
+                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full w-[84%] bg-indigo-500" />
                 </div>
               </motion.div>
-
-              {/* ── Floating Widget: Growth ── */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 1.1 }}
-                className="absolute -left-4 sm:-left-6 bottom-8 saas-glass-widget rounded-2xl px-4 py-3 float-slow z-20"
-                style={{ animationDelay: '1s' }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center">
-                    <TrendingUp size={14} className="text-violet-600" />
-                  </div>
-                  <div>
-                    <p className="text-emerald-500 text-sm font-heading font-bold">+67%</p>
-                    <p className="text-slate-400 text-[10px]">This month</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Decorative gradient sphere behind card */}
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] rounded-full bg-gradient-to-br from-indigo-100/60 to-purple-100/40 blur-3xl" />
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -327,9 +347,6 @@ export default function Hero() {
 
 
       </div>
-
-      {/* Bottom gradient transition to services */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
     </section>
   )
 }

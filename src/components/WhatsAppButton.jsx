@@ -1,25 +1,116 @@
-import React from 'react'
-import { MessageCircle } from 'lucide-react'
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, MessageCircle, Calendar, X, MoreVertical } from 'lucide-react';
 
 export default function WhatsAppButton() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const contactOptions = [
+    {
+      name: 'Call Us',
+      icon: Phone,
+      color: 'bg-blue-500',
+      text: 'text-blue-500',
+      href: 'tel:+918300227525',
+    },
+    {
+      name: 'WhatsApp',
+      icon: MessageCircle,
+      color: 'bg-emerald-500',
+      text: 'text-emerald-500',
+      href: 'https://wa.me/918300227525',
+    },
+    {
+      name: 'Book a Call',
+      icon: Calendar,
+      color: 'bg-indigo-500',
+      text: 'text-indigo-500',
+      href: '#contact',
+    },
+  ];
+
+  const handleOptionClick = (href) => {
+    setIsOpen(false);
+    if (href.startsWith('#')) {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.open(href, '_blank');
+    }
+  };
+
   return (
-    <a
-      href="https://wa.me/918300227525"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 hover:bg-emerald-600 hover:scale-110 hover:shadow-emerald-500/60 transition-all duration-300 animate-pulse-glow group"
-      aria-label="Chat on WhatsApp"
-      style={{ '--tw-shadow-color': 'rgba(16, 185, 129, 0.4)' }}
-    >
-      <MessageCircle size={26} className="text-white" />
+    <div className="fixed bottom-8 right-8 z-[100] hidden md:block">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            className="absolute bottom-20 right-0 w-56 premium-glass rounded-3xl overflow-hidden shadow-2xl border border-white/20 p-2"
+          >
+            <div className="space-y-1">
+              {contactOptions.map((option, i) => (
+                <motion.button
+                  key={option.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  onClick={() => handleOptionClick(option.href)}
+                  className="w-full flex items-center gap-3 p-3 rounded-2xl hover:bg-white/50 transition-all group"
+                >
+                  <div className={`w-10 h-10 ${option.color} rounded-xl flex items-center justify-center text-white shadow-lg shadow-black/5`}>
+                    <option.icon size={20} />
+                  </div>
+                  <span className="font-bold text-slate-800 text-sm">{option.name}</span>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Tooltip */}
-      <span className="absolute right-full mr-3 px-3 py-1.5 bg-primary text-white text-xs font-heading font-semibold rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
-        Chat with us!
-      </span>
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl shadow-indigo-500/20 border border-slate-100 relative group overflow-hidden"
+      >
+        {/* Brand Logo */}
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+            >
+              <X size={28} className="text-slate-800" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="logo"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              className="w-full h-full flex items-center justify-center p-1"
+            >
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-indigo-500/20 shadow-inner">
+                <img
+                  src="/rudrifix logo.webp"
+                  alt="Rudrifix Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      {/* Ping animation */}
-      <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-20" />
-    </a>
-  )
+        {/* Pulse effect when closed */}
+        {!isOpen && (
+          <span className="absolute inset-0 rounded-full bg-indigo-500 animate-ping opacity-20 pointer-events-none" />
+        )}
+      </motion.button>
+    </div>
+  );
 }

@@ -12,25 +12,62 @@ import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 
+import FloatingContactBar from './components/FloatingContactBar'
+
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsAndConditions from './pages/TermsAndConditions'
+
 function App() {
+  const [currentPage, setCurrentPage] = React.useState('home')
+
+  const renderContent = () => {
+    switch (currentPage) {
+      case 'privacy':
+        return <PrivacyPolicy onBack={() => setCurrentPage('home')} />
+      case 'terms':
+        return <TermsAndConditions onBack={() => setCurrentPage('home')} />
+      default:
+        return (
+          <>
+            <Hero />
+            <Services />
+            <WhyChooseUs />
+            <Process />
+            <Portfolio />
+            <BusinessAudit />
+            <BudgetPlanner />
+            <Contact />
+            <CallToAction />
+          </>
+        )
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-primary">
-      <Navbar />
+    <div className="relative min-h-screen">
+      <Navbar
+        onPrivacyClick={() => setCurrentPage('privacy')}
+        onTermsClick={() => setCurrentPage('terms')}
+        setCurrentPage={setCurrentPage}
+      />
+
       <main>
-        <Hero />
-        <Services />
-        <WhyChooseUs />
-        <Process />
-        <Portfolio />
-        <BusinessAudit />
-        <BudgetPlanner />
-        <Contact />
-        <CallToAction />
+        {renderContent()}
       </main>
-      <Footer />
+
+      <Footer
+        onPrivacyClick={() => setCurrentPage('privacy')}
+        onTermsClick={() => setCurrentPage('terms')}
+      />
+
       <WhatsAppButton />
+      <FloatingContactBar />
     </div>
   )
 }
+
+
+
+
 
 export default App

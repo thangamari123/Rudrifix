@@ -70,7 +70,7 @@ export default function Portfolio() {
 
             <span className="text-indigo-600 text-xs font-black uppercase tracking-widest font-heading">Our Portfolio</span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -96,16 +96,16 @@ export default function Portfolio() {
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 {/* Image Side */}
                 <div className="relative h-[240px] sm:h-[300px] lg:h-[420px] overflow-hidden">
-                  <motion.img 
+                  <motion.img
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.8 }}
-                    src={projects[current].image} 
+                    src={projects[current].image}
                     alt={projects[current].title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/10 to-transparent" />
-                  
+
                   {/* Category Badge on Image */}
                   <div className="absolute top-6 left-6">
                     <span className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-black uppercase tracking-widest shadow-lg">
@@ -131,7 +131,7 @@ export default function Portfolio() {
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0F172A] mb-4 tracking-tight leading-tight">
                       {projects[current].title}
                     </h3>
-                    
+
                     <p className="text-slate-500 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
                       {projects[current].desc}
                     </p>
