@@ -21,7 +21,7 @@ const businessTypes = ['Retail Shop', 'Restaurant', 'E-commerce', 'Service Busin
 
 /* ─── Services ─── */
 const servicesList = [
-  { id: 'meta', name: 'Meta Ads', desc: 'Facebook & Instagram ads', min: 2000, icon: Megaphone, color: '#8B5CF6', gradient: 'from-purple-600 to-indigo-600' },
+  { id: 'meta', name: 'Meta Ads', desc: 'Facebook & Instagram ads', min: 2000, icon: Megaphone, color: '#8B5CF6', gradient: 'from-violet-600 to-blue-600' },
   { id: 'seo', name: 'SEO', desc: 'Rank higher on Google', min: 2000, icon: Search, color: '#3B82F6', gradient: 'from-blue-600 to-cyan-500' },
   { id: 'social', name: 'Social Media', desc: 'Posts & growth stories', min: 2000, icon: Share2, color: '#22C55E', gradient: 'from-emerald-500 to-teal-500' },
   { id: 'content', name: 'Content', desc: 'Blogs & brand writing', min: 1500, icon: FileText, color: '#FB923C', gradient: 'from-amber-500 to-orange-500' },
@@ -88,7 +88,7 @@ export default function BudgetPlanner() {
   return (
     <section id="planner" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 45%, #DBEAFE 100%)' }}>
       {/* Background */}
-      <div className="absolute top-[-6%] right-[-6%] w-[500px] h-[500px] rounded-full bg-purple-200/15 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[-6%] right-[-6%] w-[500px] h-[500px] rounded-full bg-violet-200/15 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-6%] left-[-6%] w-[400px] h-[400px] rounded-full bg-blue-200/15 blur-[100px] pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(139,92,246,0.02) 1px, transparent 0)', backgroundSize: '44px 44px' }} />
 
@@ -121,14 +121,14 @@ export default function BudgetPlanner() {
               <button
                 onClick={() => { if (s.id <= step || canNext()) { setDirection(s.id > step ? 1 : -1); setStep(s.id) } }}
                 className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 ${s.id === step
-                  ? 'text-white shadow-lg shadow-indigo-300/30 scale-[1.02]'
+                  ? 'text-white shadow-lg shadow-blue-300/30 scale-[1.02]'
                   : s.id < step
-                    ? 'text-[#8B5CF6] bg-purple-50'
+                    ? 'text-[#8B5CF6] bg-violet-50'
                     : 'text-[#94A3B8] bg-white/50'
                   }`}
                 style={s.id === step ? { background: 'linear-gradient(135deg, #8B5CF6, #6366F1)' } : {}}
               >
-                <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${s.id === step ? 'bg-white/20' : s.id < step ? 'bg-purple-100' : 'bg-slate-100'}`}>
+                <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${s.id === step ? 'bg-white/20' : s.id < step ? 'bg-violet-100' : 'bg-gray-100'}`}>
                   {s.id < step ? <Check size={14} className="text-[#8B5CF6]" /> : <s.icon size={14} />}
                 </div>
                 <span className="hidden sm:inline">{s.label}</span>
@@ -145,7 +145,7 @@ export default function BudgetPlanner() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-12 mb-8 bg-white/80 backdrop-blur-2xl border border-white/50 shadow-2xl shadow-indigo-500/5"
+          className="rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-12 mb-8 bg-white/80 backdrop-blur-2xl border border-white/50 shadow-2xl shadow-blue-500/5"
         >
           <AnimatePresence mode="wait" custom={direction}>
             {/* ─── STEP 1: Budget ─── */}
@@ -191,7 +191,7 @@ export default function BudgetPlanner() {
                         step={1000}
                         value={budget}
                         onChange={(e) => setBudget(Number(e.target.value))}
-                        className="w-full h-3 rounded-full appearance-none cursor-pointer slider-purple"
+                        className="w-full h-3 rounded-full appearance-none cursor-pointer slider-violet"
                         style={{ background: `linear-gradient(to right, #8B5CF6 0%, #6366F1 ${(budget / 200000) * 100}%, rgba(99,102,241,0.12) ${(budget / 200000) * 100}%, rgba(99,102,241,0.12) 100%)` }}
                       />
                     </div>
@@ -229,7 +229,7 @@ export default function BudgetPlanner() {
                       onClick={() => setBizType(type)}
                       className={`px-6 py-3.5 rounded-2xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${bizType === type
                         ? 'text-white shadow-lg shadow-blue-400/25 scale-[1.02]'
-                        : 'bg-white text-[#64748B] border border-indigo-100/50 hover:border-indigo-200 hover:text-indigo-600 hover:shadow-md'
+                        : 'bg-white text-[#64748B] border border-blue-100/50 hover:border-blue-200 hover:text-blue-600 hover:shadow-md'
                         }`}
                       style={bizType === type ? { background: 'linear-gradient(135deg, #3B82F6, #2563EB)' } : {}}
                     >
@@ -259,7 +259,7 @@ export default function BudgetPlanner() {
                         onClick={() => toggleService(svc.id)}
                         className={`relative rounded-3xl p-6 text-left transition-all duration-350 hover:-translate-y-1 ${active
                           ? 'text-white shadow-2xl scale-[1.01]'
-                          : 'bg-white/90 border border-indigo-50 hover:shadow-lg hover:border-indigo-100'
+                          : 'bg-white/90 border border-blue-50 hover:shadow-lg hover:border-blue-100'
                           }`}
                         style={active ? { background: `linear-gradient(135deg, ${svc.color}, #4F46E5)`, boxShadow: `0 20px 50px ${svc.color}30` } : {}}
                       >

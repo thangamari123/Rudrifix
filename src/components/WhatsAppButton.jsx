@@ -23,8 +23,8 @@ export default function WhatsAppButton() {
     {
       name: 'Book a Call',
       icon: Calendar,
-      color: 'bg-indigo-500',
-      text: 'text-indigo-500',
+      color: 'bg-blue-500',
+      text: 'text-blue-500',
       href: '#contact',
     },
   ];
@@ -62,7 +62,7 @@ export default function WhatsAppButton() {
                   <div className={`w-10 h-10 ${option.color} rounded-xl flex items-center justify-center text-white shadow-lg shadow-black/5`}>
                     <option.icon size={20} />
                   </div>
-                  <span className="font-bold text-slate-800 text-sm">{option.name}</span>
+                  <span className="font-bold text-gray-800 text-sm">{option.name}</span>
                 </motion.button>
               ))}
             </div>
@@ -75,7 +75,7 @@ export default function WhatsAppButton() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Contact Support"
-        className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl shadow-indigo-500/20 border border-slate-100 relative group overflow-hidden"
+        className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/20 border border-gray-100 relative group overflow-hidden"
       >
         {/* Brand Logo */}
         <AnimatePresence mode="wait">
@@ -86,7 +86,7 @@ export default function WhatsAppButton() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 90, opacity: 0 }}
             >
-              <X size={28} className="text-slate-800" />
+              <X size={28} className="text-gray-800" />
             </motion.div>
           ) : (
             <motion.div
@@ -96,7 +96,7 @@ export default function WhatsAppButton() {
               exit={{ rotate: -90, opacity: 0 }}
               className="w-full h-full flex items-center justify-center p-1"
             >
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-indigo-500/20 shadow-inner">
+              <div className="w-full h-full rounded-full overflow-hidden border-2 border-blue-500/20 shadow-inner">
                 <img
                   src="/rudrifix logo.webp"
                   alt="Rudrifix Logo"
@@ -109,7 +109,7 @@ export default function WhatsAppButton() {
 
         {/* Pulse effect when closed */}
         {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-indigo-500 animate-ping opacity-20 pointer-events-none" />
+          <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-20 pointer-events-none" />
         )}
       </motion.button>
     </div>

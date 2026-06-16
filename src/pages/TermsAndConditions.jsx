@@ -101,7 +101,7 @@ export default function TermsAndConditions({ onBack }) {
               <Lock size={12} />
               Ownership Policy
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed font-medium">
+            <p className="text-sm text-gray-300 leading-relaxed font-medium">
               Final approved work delivered to the client becomes client property after <span className="text-white font-black underline decoration-[#7C4DFF] decoration-2">full payment</span>. Rudrifix may showcase completed work in portfolios unless requested otherwise.
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function TermsAndConditions({ onBack }) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-12 rounded-[48px] bg-gradient-to-br from-[#7C4DFF] to-[#5B8CFF] text-white relative overflow-hidden shadow-2xl shadow-indigo-500/20"
+              className="p-12 rounded-[48px] bg-gradient-to-br from-[#7C4DFF] to-[#5B8CFF] text-white relative overflow-hidden shadow-2xl shadow-blue-500/20"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2" />
               <div className="relative z-10 flex flex-col items-center text-center space-y-8">

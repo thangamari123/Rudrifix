@@ -57,9 +57,9 @@ export default function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 40%, #DBEAFE 100%)' }}>
       {/* ── Background decorations ── */}
-      <div className="absolute top-[-8%] left-[-6%] w-[550px] h-[550px] rounded-full bg-purple-200/20 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[-8%] left-[-6%] w-[550px] h-[550px] rounded-full bg-violet-200/20 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-8%] right-[-6%] w-[500px] h-[500px] rounded-full bg-blue-200/20 blur-[110px] pointer-events-none" />
-      <div className="absolute top-[40%] right-[20%] w-[250px] h-[250px] rounded-full bg-indigo-100/20 blur-[90px] pointer-events-none" />
+      <div className="absolute top-[40%] right-[20%] w-[250px] h-[250px] rounded-full bg-blue-100/20 blur-[90px] pointer-events-none" />
 
       {/* Abstract curved line */}
       <svg className="absolute top-20 right-0 w-[280px] h-[280px] pointer-events-none opacity-[0.04]" viewBox="0 0 280 280">
@@ -79,7 +79,7 @@ export default function Contact() {
           { t: 12, l: 8, s: 5 }, { t: 30, l: 85, s: 4 }, { t: 65, l: 15, s: 6 },
           { t: 80, l: 78, s: 3 }, { t: 45, l: 92, s: 4 },
         ].map((p, i) => (
-          <motion.div key={i} className="absolute rounded-full bg-indigo-400/15"
+          <motion.div key={i} className="absolute rounded-full bg-blue-400/15"
             style={{ top: `${p.t}%`, left: `${p.l}%`, width: p.s, height: p.s }}
             animate={{ y: [0, -25, 0], opacity: [0.3, 0.7, 0.3] }}
             transition={{ duration: 5 + i, repeat: Infinity, ease: 'easeInOut' }}
@@ -262,8 +262,8 @@ export default function Contact() {
               className="relative w-full max-w-lg overflow-hidden rounded-[40px] bg-white p-8 sm:p-12 text-center shadow-[0_40px_100px_rgba(15,23,42,0.2)]"
             >
               {/* Background Accent */}
-              <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-100 rounded-full blur-[80px] opacity-60" />
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-purple-100 rounded-full blur-[80px] opacity-60" />
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-100 rounded-full blur-[80px] opacity-60" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-violet-100 rounded-full blur-[80px] opacity-60" />
 
               <div className="relative z-10 flex flex-col items-center">
                 {/* Success Icon */}
@@ -285,15 +285,15 @@ export default function Contact() {
                   Message Sent <span className="text-emerald-500">Successfully!</span>
                 </h3>
 
-                <p className="mb-10 text-lg leading-relaxed text-slate-500 font-medium">
-                  Thank you for reaching out to <span className="font-bold text-indigo-600">Rudrifix</span>. We've received your inquiry and our strategy team will contact you within <span className="text-[#0F172A] font-bold">24 hours</span>.
+                <p className="mb-10 text-lg leading-relaxed text-gray-500 font-medium">
+                  Thank you for reaching out to <span className="font-bold text-blue-600">Rudrifix</span>. We've received your inquiry and our strategy team will contact you within <span className="text-[#0F172A] font-bold">24 hours</span>.
                 </p>
 
                 <motion.button
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSubmitted(false)}
-                  className="w-full rounded-2xl bg-[#0F172A] py-5 text-lg font-bold text-white shadow-xl shadow-slate-900/10 transition-all hover:bg-slate-800"
+                  className="w-full rounded-2xl bg-[#0F172A] py-5 text-lg font-bold text-white shadow-xl shadow-gray-900/10 transition-all hover:bg-gray-800"
                 >
                   Great, Thanks!
                 </motion.button>

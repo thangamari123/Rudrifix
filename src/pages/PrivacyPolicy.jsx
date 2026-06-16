@@ -206,7 +206,7 @@ export default function PrivacyPolicy({ onBack }) {
 
               <div className="p-8 rounded-[32px] bg-[#111827] text-white shadow-xl shadow-[#111827]/10">
                 <h3 className="font-black text-lg mb-4">Need help?</h3>
-                <p className="text-slate-400 text-sm mb-6">Our legal team is available to clarify any terms.</p>
+                <p className="text-gray-400 text-sm mb-6">Our legal team is available to clarify any terms.</p>
                 <a 
                   href="mailto:rudrifix@gmail.com" 
                   className="block w-full py-4 rounded-2xl bg-white text-[#111827] text-center font-black text-sm hover:bg-[#7C4DFF] hover:text-white transition-all"
@@ -276,7 +276,7 @@ function CheckIcon() {
 function ContactCard({ icon: Icon, label, value, gradient }) {
   return (
     <div className="p-6 rounded-3xl bg-[#F5F7FF] border border-[#E5E7EB] hover:border-[#7C4DFF]/30 transition-all group">
-      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white mb-4 shadow-lg shadow-indigo-500/10`}>
+      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-white mb-4 shadow-lg shadow-blue-500/10`}>
         <Icon size={20} />
       </div>
       <p className="text-[10px] font-black text-[#6B7280] uppercase tracking-widest mb-1">{label}</p>

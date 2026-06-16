@@ -9,8 +9,8 @@ const questions = [
     id: 1,
     text: 'Does your business have a website?',
     icon: Globe,
-    iconBg: 'bg-purple-100',
-    iconColor: 'text-purple-600',
+    iconBg: 'bg-violet-100',
+    iconColor: 'text-violet-600',
   },
   {
     id: 2,
@@ -75,7 +75,7 @@ export default function BusinessAudit() {
       style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 50%, #DBEAFE 100%)' }}
     >
       {/* Background blobs */}
-      <div className="absolute top-[-8%] left-[-6%] w-[400px] h-[400px] rounded-full bg-purple-200/25 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[-8%] left-[-6%] w-[400px] h-[400px] rounded-full bg-violet-200/25 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-8%] right-[-6%] w-[400px] h-[400px] rounded-full bg-blue-200/25 blur-[110px] pointer-events-none" />
 
       {/* Dot grid */}
@@ -112,7 +112,7 @@ export default function BusinessAudit() {
             How Strong Is Your{' '}
             <span className="gradient-text-saas">Business Online?</span>
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto">
+          <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
             Answer 5 quick questions and get an instant snapshot of your digital presence.
           </p>
         </motion.div>
@@ -142,10 +142,10 @@ export default function BusinessAudit() {
                   transition={{ duration: 0.45, delay: 0.15 + idx * 0.07 }}
                   className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 rounded-2xl border transition-all duration-200 ${
                     selected === true
-                      ? 'bg-indigo-50/60 border-indigo-200'
+                      ? 'bg-blue-50/60 border-blue-200'
                       : selected === false
-                      ? 'bg-slate-50 border-slate-200'
-                      : 'bg-white/60 border-white/80 hover:shadow-sm hover:border-slate-200'
+                      ? 'bg-gray-50 border-gray-200'
+                      : 'bg-white/60 border-white/80 hover:shadow-sm hover:border-gray-200'
                   }`}
                 >
                   {/* Icon + Question text */}
@@ -166,8 +166,8 @@ export default function BusinessAudit() {
                       onClick={() => handleAnswer(q.id, true)}
                       className={`flex-1 sm:flex-none px-5 py-2 rounded-xl text-sm font-black transition-all duration-200 ${
                         selected === true
-                          ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200'
-                          : 'bg-white border border-slate-200 text-slate-500 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-600'
+                          ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
+                          : 'bg-white border border-gray-200 text-gray-500 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600'
                       }`}
                     >
                       ✓ Yes
@@ -176,8 +176,8 @@ export default function BusinessAudit() {
                       onClick={() => handleAnswer(q.id, false)}
                       className={`flex-1 sm:flex-none px-5 py-2 rounded-xl text-sm font-black transition-all duration-200 ${
                         selected === false
-                          ? 'bg-slate-800 text-white shadow-lg shadow-slate-200'
-                          : 'bg-white border border-slate-200 text-slate-500 hover:bg-slate-50 hover:border-slate-300'
+                          ? 'bg-gray-800 text-white shadow-lg shadow-gray-200'
+                          : 'bg-white border border-gray-200 text-gray-500 hover:bg-gray-50 hover:border-gray-300'
                       }`}
                     >
                       ✗ No
@@ -192,11 +192,11 @@ export default function BusinessAudit() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
               <span className="text-xs sm:text-sm font-black text-[#0F172A]">Audit Progress</span>
-              <span className="text-xs sm:text-sm font-black text-indigo-600">
+              <span className="text-xs sm:text-sm font-black text-blue-600">
                 {answered} / {questions.length} answered
               </span>
             </div>
-            <div className="h-2.5 rounded-full bg-slate-100 overflow-hidden">
+            <div className="h-2.5 rounded-full bg-gray-100 overflow-hidden">
               <motion.div
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.4 }}
@@ -216,8 +216,8 @@ export default function BusinessAudit() {
                   <span className={`text-base sm:text-lg font-black ${scoreLabel.color}`}>
                     {scoreLabel.text}
                   </span>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Your digital score: <strong className="text-slate-600">{score} / {questions.length}</strong>
+                  <p className="text-xs text-gray-400 mt-1">
+                    Your digital score: <strong className="text-gray-600">{score} / {questions.length}</strong>
                   </p>
                 </motion.div>
               )}
@@ -235,7 +235,7 @@ export default function BusinessAudit() {
             className={`w-full py-4 sm:py-5 font-black text-[13px] sm:text-lg rounded-2xl transition-all duration-200 shadow-xl active:scale-[0.98] flex items-center justify-center gap-3 ${
               allAnswered
                 ? 'text-white hover:opacity-90 hover:shadow-2xl'
-                : 'bg-slate-100 text-slate-400 cursor-not-allowed shadow-none'
+                : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
             }`}
             style={
               allAnswered
@@ -249,7 +249,7 @@ export default function BusinessAudit() {
           </button>
 
           {allAnswered && (
-            <p className="text-center text-xs text-slate-400 mt-3 font-medium">
+            <p className="text-center text-xs text-gray-400 mt-3 font-medium">
               🔒 100% Free — No credit card required
             </p>
           )}

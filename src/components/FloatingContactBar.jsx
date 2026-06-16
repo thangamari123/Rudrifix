@@ -24,7 +24,7 @@ const FloatingContactBar = () => {
           <span className="text-[9px] font-bold text-[#1E40AF] uppercase tracking-wider">Call</span>
         </motion.a>
 
-        <div className="w-[1px] h-[40%] bg-slate-200" />
+        <div className="w-[1px] h-[40%] bg-gray-200" />
 
         {/* WhatsApp Section */}
         <motion.a

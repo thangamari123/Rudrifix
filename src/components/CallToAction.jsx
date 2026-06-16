@@ -11,9 +11,9 @@ export default function CallToAction() {
   return (
     <section id="cta" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 45%, #DBEAFE 100%)' }}>
       {/* ── Background decorations ── */}
-      <div className="absolute top-[-10%] left-[10%] w-[600px] h-[600px] rounded-full bg-purple-200/20 blur-[130px] pointer-events-none" />
+      <div className="absolute top-[-10%] left-[10%] w-[600px] h-[600px] rounded-full bg-violet-200/20 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[5%] w-[550px] h-[550px] rounded-full bg-blue-200/20 blur-[120px] pointer-events-none" />
-      <div className="absolute top-[30%] right-[30%] w-[300px] h-[300px] rounded-full bg-indigo-100/25 blur-[100px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[30%] w-[300px] h-[300px] rounded-full bg-blue-100/25 blur-[100px] pointer-events-none" />
 
       {/* Abstract curves */}
       <svg className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.03]" viewBox="0 0 1440 600" preserveAspectRatio="none">
@@ -33,7 +33,7 @@ export default function CallToAction() {
         ].map((p, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-indigo-400/15"
+            className="absolute rounded-full bg-blue-400/15"
             style={{ top: `${p.t}%`, left: `${p.l}%`, width: p.s, height: p.s }}
             animate={{ y: [0, -20, 0], opacity: [0.2, 0.6, 0.2] }}
             transition={{ duration: 6 + i * 0.8, repeat: Infinity, ease: 'easeInOut' }}

@@ -5,8 +5,8 @@ import { useInView } from '../hooks/useInView'
 
 const stats = [
   { icon: Globe2, value: '150+', label: 'Market Jurisdictions', color: 'text-blue-500' },
-  { icon: BarChart3, value: '₹10Cr+', label: 'Ad Capital Managed', color: 'text-indigo-500' },
-  { icon: Clock, value: '5+', label: 'Years of Scaling', color: 'text-purple-500' },
+  { icon: BarChart3, value: '₹10Cr+', label: 'Ad Capital Managed', color: 'text-blue-500' },
+  { icon: Clock, value: '5+', label: 'Years of Scaling', color: 'text-violet-500' },
   { icon: TrendingUp, value: '8.4x', label: 'Average ROAS', color: 'text-emerald-500' },
 ]
 
@@ -46,9 +46,9 @@ export default function About() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 shadow-sm"
               >
-                <div className="w-2 h-2 rounded-full bg-brand-purple animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-brand-violet animate-pulse" />
                 <span className="text-black text-[10px] font-black uppercase tracking-widest text-black/60">Technical Growth Agency</span>
               </motion.div>
 
@@ -58,7 +58,7 @@ export default function About() {
                 className="text-5xl sm:text-7xl font-black text-black leading-[1.05] tracking-tighter"
               >
                 Comprehensive <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple via-brand-blue to-indigo-500">Solutions Built</span> <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet via-brand-blue to-blue-500">Solutions Built</span> <br />
                 To Scale.
               </motion.h2>
 
@@ -81,7 +81,7 @@ export default function About() {
                   className="p-6 rounded-3xl bg-white/40 backdrop-blur-md border border-white shadow-sm hover:shadow-md transition-all group"
                 >
                   <div className="flex gap-5">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-purple/5 flex items-center justify-center text-brand-purple shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-violet/5 flex items-center justify-center text-brand-violet shrink-0 group-hover:scale-110 transition-transform">
                       <prop.icon size={24} />
                     </div>
                     <div>
@@ -110,7 +110,7 @@ export default function About() {
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-2xl font-bold text-sm hover:bg-slate-900 transition-all hover:translate-y-[-2px] shadow-xl shadow-black/10"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-2xl font-bold text-sm hover:bg-gray-900 transition-all hover:translate-y-[-2px] shadow-xl shadow-black/10"
               >
                 Start Your Scaling Phase
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -126,12 +126,12 @@ export default function About() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                className="p-8 rounded-[40px] bg-white border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.02)] relative group overflow-hidden hover:translate-y-[-5px] transition-all duration-500"
+                className="p-8 rounded-[40px] bg-white border border-gray-100 shadow-[0_20px_40px_rgba(0,0,0,0.02)] relative group overflow-hidden hover:translate-y-[-5px] transition-all duration-500"
               >
                 <stat.icon size={80} className="absolute -bottom-4 -right-4 opacity-[0.03] group-hover:scale-110 transition-transform duration-700" />
 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center ${stat.color} mb-6 group-hover:rotate-6 transition-transform`}>
+                  <div className={`w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center ${stat.color} mb-6 group-hover:rotate-6 transition-transform`}>
                     <stat.icon size={24} />
                   </div>
                   <div className="text-4xl font-black text-black mb-1 tracking-tighter">
@@ -149,7 +149,7 @@ export default function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 }}
-              className="col-span-2 p-8 rounded-[40px] bg-gradient-to-br from-brand-purple to-brand-blue relative overflow-hidden group"
+              className="col-span-2 p-8 rounded-[40px] bg-gradient-to-br from-brand-violet to-brand-blue relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-8">

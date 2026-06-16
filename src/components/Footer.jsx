@@ -1,23 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Instagram, Facebook, Linkedin, Mail, Shield, ChevronRight, Target, Phone, ChevronDown } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 
 const footerLinks = {
   services: [
-    { name: 'Website Development', href: '#services' },
-    { name: 'Meta Ads Scaling', href: '#services' },
-    { name: 'Branding & Design', href: '#services' },
-    { name: 'Content Creation', href: '#services' },
+    { name: 'Website Development', href: '/web-development' },
+    { name: 'SEO Services', href: '/seo-services' },
+    { name: 'Google Ads', href: '/google-ads-management' },
+    { name: 'Meta Ads', href: '/meta-ads-management' },
+    { name: 'Social Media', href: '/social-media-marketing' },
   ],
   company: [
-    { name: 'Home', href: '#home' },
-    { name: 'Audit tool', href: '#audit' },
-    { name: 'Work', href: '#work' },
-    { name: 'Budget Planner', href: '#planner' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Audit tool', href: '/#audit' },
+    { name: 'Work', href: '/#work' },
+    { name: 'Contact', href: '/#contact' },
   ],
   support: [
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms & Conditions', href: '/terms-and-conditions' },
+    { name: 'Sitemap', href: '/sitemap' }
   ],
 }
 
@@ -28,13 +31,31 @@ const socials = [
   { icon: Mail, href: 'mailto:rudrifix@gmail.com' },
 ]
 
-export default function Footer({ onPrivacyClick, onTermsClick }) {
+export default function Footer() {
   const [openSection, setOpenSection] = useState(null)
+  const location = useLocation()
 
   const handleNavClick = (e, href) => {
-    if (href.startsWith('#')) {
-      e.preventDefault()
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    if (href.includes('#')) {
+      const hash = href.substring(href.indexOf('#'))
+      
+      if (location.pathname === '/') {
+        // If we are already on the homepage, smooth scroll manually
+        e.preventDefault()
+        const id = hash.replace('#', '')
+        if (id === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+          const element = document.getElementById(id)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }
+        window.history.pushState(null, '', href)
+      }
+    } else {
+      // It's a standard page route, scrollToTop when navigating
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -54,23 +75,22 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
 
           {/* Brand Section */}
           <div className="lg:col-span-5 space-y-6 md:space-y-8">
-            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-3 group">
+            <Link to="/#home" onClick={(e) => handleNavClick(e, '/#home')} className="flex items-center gap-3 group">
               <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white shadow-xl shadow-blue-500/10 flex items-center justify-center p-2 md:p-3 group-hover:scale-110 transition-transform">
                 <img src="/rudrifix logo.webp" alt="Rudrifix" className="w-full h-auto object-contain" />
               </div>
-
-            </a>
+            </Link>
 
             <p className="text-black text-sm font-medium leading-relaxed max-w-sm">
               We engineer high-performance marketing infrastructure for brands that demand explosive growth and a premium digital presence.
             </p>
 
             <div className="flex flex-col gap-3">
-              <a href="tel:+918300227525" className="flex items-center gap-2 text-black/70 hover:text-brand-purple transition-colors text-sm font-bold w-fit">
+              <a href="tel:+918300227525" className="flex items-center gap-2 text-black/70 hover:text-brand-violet transition-colors text-sm font-bold w-fit">
                 <Phone size={16} />
                 +91 8300227525
               </a>
-              <a href="tel:+919487816005" className="flex items-center gap-2 text-black/70 hover:text-brand-purple transition-colors text-sm font-bold w-fit">
+              <a href="tel:+919487816005" className="flex items-center gap-2 text-black/70 hover:text-brand-violet transition-colors text-sm font-bold w-fit">
                 <Phone size={16} />
                 +91 94878 16005
               </a>
@@ -83,7 +103,7 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
                   href={soc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white border border-saas-border flex items-center justify-center text-black/60 hover:text-brand-purple hover:border-brand-purple/30 hover:-translate-y-1 transition-all duration-300 shadow-sm"
+                  className="w-10 h-10 rounded-xl bg-white border border-saas-border flex items-center justify-center text-black/60 hover:text-brand-violet hover:border-brand-violet/30 hover:-translate-y-1 transition-all duration-300 shadow-sm"
                 >
                   <soc.icon size={18} />
                 </a>
@@ -99,28 +119,14 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
                 <ul className="space-y-3">
                   {links.map((link) => (
                     <li key={link.name}>
-                      <a
-                        href={link.href}
-                        onClick={(e) => {
-                          if (link.name === 'Privacy Policy') {
-                            e.preventDefault()
-                            if (onPrivacyClick) {
-                              onPrivacyClick()
-                            }
-                          } else if (link.name === 'Terms & Conditions') {
-                            e.preventDefault()
-                            if (onTermsClick) {
-                              onTermsClick()
-                            }
-                          } else {
-                            handleNavClick(e, link.href)
-                          }
-                        }}
-                        className="text-black/70 hover:text-brand-purple hover:translate-x-1 text-sm font-bold transition-all duration-300 block relative group/link w-fit"
+                      <Link
+                        to={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="text-black/70 hover:text-brand-violet hover:translate-x-1 text-sm font-bold transition-all duration-300 block relative group/link w-fit"
                       >
                         {link.name}
-                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-300 group-hover/link:w-full" />
-                      </a>
+                        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-violet transition-all duration-300 group-hover/link:w-full" />
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -141,32 +147,18 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
                 </button>
                 
                 <div 
-                  className={`transition-all duration-300 ease-in-out ${openSection === title ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
+                  className={`transition-all duration-300 ease-in-out ${openSection === title ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                   <ul className="px-4 pb-4 space-y-3">
                     {links.map((link) => (
                       <li key={link.name}>
-                        <a
-                          href={link.href}
-                          onClick={(e) => {
-                            if (link.name === 'Privacy Policy') {
-                              e.preventDefault()
-                              if (onPrivacyClick) {
-                                onPrivacyClick()
-                              }
-                            } else if (link.name === 'Terms & Conditions') {
-                              e.preventDefault()
-                              if (onTermsClick) {
-                                onTermsClick()
-                              }
-                            } else {
-                              handleNavClick(e, link.href)
-                            }
-                          }}
-                          className="text-black/70 hover:text-brand-purple text-sm font-bold transition-all duration-300 block w-fit"
+                        <Link
+                          to={link.href}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                          className="text-black/70 hover:text-brand-violet text-sm font-bold transition-all duration-300 block w-fit"
                         >
                           {link.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>

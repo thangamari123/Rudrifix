@@ -7,6 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        blue: {
+          50: '#E0F1FB', // Brand Background
+          100: '#D3E6F7', // Brand Border
+        },
         primary: '#050510',
         'primary-light': '#0A0A1A',
         'primary-elevated': '#0D0B1E',

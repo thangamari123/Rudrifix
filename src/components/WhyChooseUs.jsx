@@ -8,7 +8,7 @@ const cards = [
     icon: Target,
     title: 'Strategy First',
     desc: "We research, analyze, and plan before we execute. Every campaign starts with a data-backed roadmap.",
-    color: 'from-blue-500 to-indigo-600',
+    color: 'from-blue-500 to-blue-600',
     shadow: 'shadow-blue-500/10',
     colSpan: 'lg:col-span-1'
   },
@@ -32,16 +32,16 @@ const cards = [
     icon: Headphones,
     title: 'Dedicated Support',
     desc: 'Direct communication with real humans who care about your success. No bots, just 24/7 strategic support.',
-    color: 'from-purple-500 to-indigo-600',
-    shadow: 'shadow-purple-500/10',
+    color: 'from-violet-500 to-blue-600',
+    shadow: 'shadow-violet-500/10',
     colSpan: 'lg:col-span-2'
   },
   {
     icon: ShieldCheck,
     title: 'Transparent Process',
     desc: 'Full visibility into your campaigns. We believe in total honesty and clear reporting.',
-    color: 'from-indigo-500 to-blue-600',
-    shadow: 'shadow-indigo-500/10',
+    color: 'from-blue-500 to-blue-600',
+    shadow: 'shadow-blue-500/10',
     colSpan: 'lg:col-span-1'
   }
 ]
@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
   return (
     <section id="whychoose" className="relative overflow-hidden py-16 sm:py-20" style={{ background: 'linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 50%, #DBEAFE 100%)' }}>
       {/* Background Glows */}
-      <div className="absolute top-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full bg-purple-200/20 blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full bg-violet-200/20 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-5%] right-[-5%] w-[400px] h-[400px] rounded-full bg-blue-200/20 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
@@ -62,10 +62,10 @@ export default function WhyChooseUs() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-6"
           >
 
-            <span className="text-indigo-600 text-xs font-black uppercase tracking-widest">The Rudrifix Advantage</span>
+            <span className="text-blue-600 text-xs font-black uppercase tracking-widest">The Rudrifix Advantage</span>
           </motion.div>
 
           <motion.h2
@@ -82,7 +82,7 @@ export default function WhyChooseUs() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto"
+            className="text-gray-500 text-lg sm:text-xl max-w-2xl mx-auto"
           >
             We combine data-driven precision with creative excellence to deliver results that don't just look good, but scale your business.
           </motion.p>
@@ -115,10 +115,10 @@ export default function WhyChooseUs() {
 
               {/* Content */}
               <div className="relative">
-                <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] mb-4 tracking-tight group-hover:text-indigo-600 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
                   {card.title}
                 </h3>
-                <p className="text-slate-500 text-base sm:text-lg leading-relaxed">
+                <p className="text-gray-500 text-base sm:text-lg leading-relaxed">
                   {card.desc}
                 </p>
               </div>
