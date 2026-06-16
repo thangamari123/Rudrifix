@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Instagram, Facebook, Linkedin, Mail, Shield, ChevronRight, Target } from 'lucide-react'
+import { Instagram, Facebook, Linkedin, Mail, Shield, ChevronRight, Target, Phone, ChevronDown } from 'lucide-react'
 
 const footerLinks = {
   services: [
@@ -29,6 +29,8 @@ const socials = [
 ]
 
 export default function Footer({ onPrivacyClick, onTermsClick }) {
+  const [openSection, setOpenSection] = useState(null)
+
   const handleNavClick = (e, href) => {
     if (href.startsWith('#')) {
       e.preventDefault()
@@ -37,7 +39,7 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
   }
 
   return (
-    <footer className="relative py-12 px-6 overflow-hidden">
+    <footer className="relative py-8 px-4 md:py-12 md:px-6 overflow-hidden">
       {/* SaaS Background Style - EXACT AS REQUESTED */}
       <div className="absolute inset-0 z-0" style={{
         background: `
@@ -48,12 +50,12 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
       }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 items-start pb-10 border-b border-saas-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 items-start pb-8 md:pb-10 border-b border-saas-border">
 
           {/* Brand Section */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6 md:space-y-8">
             <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-3 group">
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-xl shadow-blue-500/10 flex items-center justify-center p-3 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white shadow-xl shadow-blue-500/10 flex items-center justify-center p-2 md:p-3 group-hover:scale-110 transition-transform">
                 <img src="/rudrifix logo.webp" alt="Rudrifix" className="w-full h-auto object-contain" />
               </div>
 
@@ -62,6 +64,17 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
             <p className="text-black text-sm font-medium leading-relaxed max-w-sm">
               We engineer high-performance marketing infrastructure for brands that demand explosive growth and a premium digital presence.
             </p>
+
+            <div className="flex flex-col gap-3">
+              <a href="tel:+918300227525" className="flex items-center gap-2 text-black/70 hover:text-brand-purple transition-colors text-sm font-bold w-fit">
+                <Phone size={16} />
+                +91 8300227525
+              </a>
+              <a href="tel:+919487816005" className="flex items-center gap-2 text-black/70 hover:text-brand-purple transition-colors text-sm font-bold w-fit">
+                <Phone size={16} />
+                +91 94878 16005
+              </a>
+            </div>
 
             <div className="flex gap-3">
               {socials.map((soc, i) => (
@@ -78,8 +91,8 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
             </div>
           </div>
 
-          {/* Link Columns */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {/* Link Columns Desktop */}
+          <div className="hidden md:grid lg:col-span-7 grid-cols-3 gap-8">
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title} className="space-y-6">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-black/60">{title}</h4>
@@ -114,10 +127,57 @@ export default function Footer({ onPrivacyClick, onTermsClick }) {
               </div>
             ))}
           </div>
+
+          {/* Link Columns Mobile Accordion */}
+          <div className="md:hidden lg:col-span-7 flex flex-col gap-3 mt-4">
+            {Object.entries(footerLinks).map(([title, links]) => (
+              <div key={title} className="bg-white rounded-xl border border-saas-border shadow-sm overflow-hidden">
+                <button 
+                  onClick={() => setOpenSection(openSection === title ? null : title)}
+                  className="w-full flex items-center justify-between p-4"
+                >
+                  <span className="text-sm font-bold text-black capitalize">{title}</span>
+                  <ChevronDown size={18} className={`text-black/60 transition-transform duration-300 ${openSection === title ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <div 
+                  className={`transition-all duration-300 ease-in-out ${openSection === title ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <ul className="px-4 pb-4 space-y-3">
+                    {links.map((link) => (
+                      <li key={link.name}>
+                        <a
+                          href={link.href}
+                          onClick={(e) => {
+                            if (link.name === 'Privacy Policy') {
+                              e.preventDefault()
+                              if (onPrivacyClick) {
+                                onPrivacyClick()
+                              }
+                            } else if (link.name === 'Terms & Conditions') {
+                              e.preventDefault()
+                              if (onTermsClick) {
+                                onTermsClick()
+                              }
+                            } else {
+                              handleNavClick(e, link.href)
+                            }
+                          }}
+                          className="text-black/70 hover:text-brand-purple text-sm font-bold transition-all duration-300 block w-fit"
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex items-center justify-center border-t border-saas-border/10">
+        <div className="pt-6 md:pt-8 flex items-center justify-center border-t border-saas-border/10">
           <p className="text-[10px] font-black text-black/40 uppercase tracking-[0.4em] text-center">
             © 2026 Rudrifix. All rights reserved
           </p>
