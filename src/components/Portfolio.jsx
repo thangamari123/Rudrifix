@@ -35,7 +35,7 @@ const projects = [
     accentBorder: 'border-violet-100',
     accentIcon: 'text-violet-600',
     tag: 'Telecom',
-    link: 'https://rspl-website.pages.dev/',
+    link: 'https://rathnaaspectra.com/',
   },
   {
     id: 3,

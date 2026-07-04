@@ -6,7 +6,7 @@ const navLinks = [
   { name: 'Home', href: '/#home' },
   { 
     name: 'Services', 
-    href: '/#services',
+    href: '/services',
     megaMenu: [
       {
         category: 'Tech & Dev',
@@ -51,8 +51,8 @@ const navLinks = [
       }
     ]
   },
-  { name: 'Work', href: '/#work' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 export default function Navbar() {
@@ -198,8 +198,8 @@ export default function Navbar() {
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
             <Link
-              to="/#contact"
-              onClick={(e) => handleNavClick(e, '/#contact')}
+              to="/contact"
+              onClick={(e) => handleNavClick(e, '/contact')}
               className="hidden md:flex items-center gap-3 bg-[#6366f1] text-white pl-6 pr-1.5 py-1.5 rounded-full hover:bg-blue-600 transition-all hover:shadow-lg hover:shadow-blue-500/25 active:scale-95 group"
             >
               <span className="font-medium text-[15px]">Book Consultation</span>
@@ -283,8 +283,8 @@ export default function Navbar() {
               )
             })}
             <Link
-              to="/#contact"
-              onClick={(e) => handleNavClick(e, '/#contact')}
+              to="/contact"
+              onClick={(e) => handleNavClick(e, '/contact')}
               className="mt-2 flex items-center justify-between bg-[#6366f1] text-white px-5 py-3 rounded-xl font-medium active:scale-95 transition-transform"
             >
               <span>Book Consultation</span>

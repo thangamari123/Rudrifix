@@ -1,22 +1,117 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
+import { buildWebPageSchema, buildServiceSchema, buildOrganizationSchema } from '../utils/schemaBuilders';
+import SummaryBlock from '../components/AEO/SummaryBlock';
+import FAQSection from '../components/AEO/FAQSection';
+import ContentSection from '../components/AEO/ContentSection';
+import RelatedServices from '../components/AEO/RelatedServices';
+import RelatedKeywords from '../components/AEO/RelatedKeywords';
 import { ArrowRight, CheckCircle2, Code2, Smartphone, Zap, Search, ChevronDown, Rocket, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
+    q: "What is Website Development?",
+    shortAnswer: "Website development is the process of building and maintaining a website.",
+    a: "It includes aspects such as web design, web publishing, web programming, and database management. For businesses, it means creating a digital platform that is fast, secure, and optimized for search engines to convert visitors into customers."
+  },
+  {
     q: "How long does it take to build a custom website?",
-    a: "A typical custom website project takes between 4 to 8 weeks from initial discovery to final launch. E-commerce platforms or highly complex web applications may take longer. We provide a detailed timeline before the project begins."
+    shortAnswer: "A typical custom website project takes between 4 to 8 weeks.",
+    a: "The timeline depends on the complexity of the site. From initial discovery to final launch, a standard corporate site takes 4-8 weeks, while complex E-commerce platforms or web applications may take 3-4 months. We provide a detailed timeline before the project begins."
+  },
+  {
+    q: "Why is SEO important in web development?",
+    shortAnswer: "SEO ensures your website is visible on search engines like Google.",
+    a: "Building a beautiful website is useless if no one can find it. SEO-driven web development ensures that technical aspects like site speed, mobile responsiveness, semantic HTML, and schema markup are baked into the code from day one, leading to higher rankings."
+  },
+  {
+    q: "How much does a custom website cost?",
+    shortAnswer: "Custom websites typically start at $2,000 depending on features.",
+    a: "Pricing varies based on design complexity, number of pages, functionality (like e-commerce or custom portals), and integrations. Our packages are tailored to your specific business needs and budget."
   },
   {
     q: "Will I be able to update the website myself?",
-    a: "Yes! We can integrate a user-friendly Headless CMS (Content Management System) that allows you to easily update text, change images, and publish blog posts without needing to write any code."
+    shortAnswer: "Yes, we integrate user-friendly Headless CMS platforms.",
+    a: "We can integrate a modern Content Management System (CMS) like Sanity or Strapi that allows you to easily update text, change images, and publish blog posts without needing to write any code."
   },
   {
-    q: "Do you provide web hosting?",
-    a: "Yes, we offer high-performance, secure cloud hosting solutions as part of our maintenance packages to ensure your website is always fast and online."
+    q: "Who owns the website once it's completed?",
+    shortAnswer: "You own 100% of the website and its code.",
+    a: "Once the final payment is made, full ownership of the website, design assets, and source code is transferred to you. There are no hidden licensing fees."
+  },
+  {
+    q: "What technologies do you use?",
+    shortAnswer: "We use modern stacks like React, Next.js, and Node.js.",
+    a: "We focus on high-performance frameworks like React, Next.js, and Vite for the frontend, combined with Node.js or Python for the backend. We avoid slow, bloated legacy builders."
+  },
+  {
+    q: "When is the best time to redesign my website?",
+    shortAnswer: "If your site is slow, non-responsive, or not converting.",
+    a: "You should consider a redesign if your current website takes longer than 3 seconds to load, is not mobile-friendly, has outdated branding, or if your competitors are outranking you in Google search results."
+  },
+  {
+    q: "Do you provide web hosting and maintenance?",
+    shortAnswer: "Yes, we offer secure cloud hosting and ongoing maintenance.",
+    a: "We provide high-performance cloud hosting solutions (like AWS or Vercel) as part of our maintenance packages. This ensures your website is always fast, secure, and up-to-date with the latest patches."
+  },
+  {
+    q: "What are the benefits of a custom website over a template?",
+    shortAnswer: "Custom websites are faster, more secure, and scalable.",
+    a: "Templates often contain bloated code that slows down your site and hurts SEO. A custom website is tailored exactly to your brand, optimized for conversions, and built to scale as your business grows."
   }
+];
+
+const seoSchemas = [
+  buildOrganizationSchema(),
+  buildWebPageSchema(
+    "Web Development Company in Chennai | Custom Websites | Rudrifix",
+    "We build lightning-fast, SEO-optimized, and conversion-focused websites that elevate your brand and drive actual business results.",
+    "https://rudrifix.com/web-development"
+  ),
+  buildServiceSchema(
+    "Web Development",
+    "Custom, SEO-optimized, and high-performance website development services using React and Next.js.",
+    "Rudrifix",
+    "https://rudrifix.com/web-development"
+  )
+];
+
+const pageAEO = {
+  summary: "Rudrifix provides premium web development services, building lightning-fast, SEO-optimized, and conversion-focused custom websites. We utilize modern frameworks like React and Next.js to deliver highly responsive digital experiences that drive actual business growth and dominate search engine rankings.",
+  takeaways: [
+    "Lightning-fast load times using modern tech stacks.",
+    "SEO baked into the code with semantic HTML and schema.",
+    "Mobile-first responsive design for flawless user experience.",
+    "Custom code with zero bloat for maximum security and scalability."
+  ],
+  pricing: "Starting at ₹49,999",
+  timeline: "4 - 8 Weeks",
+  industries: ["SaaS", "E-commerce", "Corporate", "Healthcare", "Education"],
+  useCases: [
+    { title: "Lead Generation", desc: "Optimized landing pages to capture more leads." },
+    { title: "Brand Authority", desc: "Premium designs that build trust and credibility." },
+    { title: "E-commerce Sales", desc: "Fast checkout flows to increase revenue." }
+  ],
+  prosCons: {
+    pros: ["Sub-second load times", "Higher Google rankings", "Better conversion rates", "Full ownership of code"],
+    cons: ["Higher initial investment than templates", "Longer development timeline"]
+  },
+  comparisonTable: [
+    { feature: "Custom Design", others: false },
+    { feature: "Sub-second Performance", others: false },
+    { feature: "Technical SEO Built-in", others: false },
+    { feature: "Mobile-First Responsive", others: true }
+  ]
+};
+
+const relatedServices = [
+  { name: "SEO Services", desc: "Rank higher on Google and drive organic traffic.", path: "/seo-services" },
+  { name: "App Development", desc: "Custom iOS and Android applications.", path: "/app-development" },
+  { name: "UI/UX Design", desc: "Stunning user interfaces and experiences.", path: "/ui-ux-design" },
+  { name: "E-commerce Solutions", desc: "Scalable online stores that convert.", path: "/ecommerce-solutions" }
 ];
 
 const processes = [
@@ -36,11 +131,13 @@ export default function WebDevelopment() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Web Development Company in Chennai | Custom Websites | Rudrifix</title>
-        <meta name="description" content="We build lightning-fast, SEO-optimized, and conversion-focused websites that elevate your brand and drive actual business results." />
-        <meta name="keywords" content="Web Development Company Chennai, Web Development Company Coimbatore, Web Development Company Madurai, Web Development Company Tiruchirappalli, Web Development Company Salem, Web Development Company Tiruppur, Web Development Company Erode, Web Development Company Tirunelveli, Web Development Company Thoothukudi, Web Development Company Tuticorin" />
-      </Helmet>
+      <SEO 
+        title="Web Development Company in Chennai | Custom Websites | Rudrifix"
+        description="We build lightning-fast, SEO-optimized, and conversion-focused websites that elevate your brand and drive actual business results."
+        keywords="Web Development Company Chennai, Web Development Company Coimbatore, Web Development Company Madurai, custom website development, React development"
+        canonicalUrl="/web-development"
+        schemas={seoSchemas}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
@@ -206,50 +303,26 @@ export default function WebDevelopment() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-24 relative z-10">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-6">Frequently Asked Questions</h2>
-          </div>
-          
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                key={i} 
-                className="border border-blue-200 rounded-2xl bg-white shadow-sm overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left"
-                >
-                  <span className="font-bold text-lg text-gray-900">{faq.q}</span>
-                  <ChevronDown className={`text-blue-500 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-blue-50">
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* AEO Summary & Key Takeaways */}
+      <SummaryBlock summary={pageAEO.summary} takeaways={pageAEO.takeaways} />
 
+      {/* GEO Content Section (Pricing, Timeline, Pros/Cons, Comparison) */}
+      <ContentSection 
+        pricing={pageAEO.pricing}
+        timeline={pageAEO.timeline}
+        industries={pageAEO.industries}
+        useCases={pageAEO.useCases}
+        prosCons={pageAEO.prosCons}
+        comparisonTable={pageAEO.comparisonTable}
+      />
+
+      {/* FAQs */}
+      {/* Related Keywords & Service Areas */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <RelatedKeywords serviceSlug="web-development" serviceName="Web Development" />
+      </div>
+
+      <FAQSection faqs={faqs} />
       
       {/* Service Areas */}
       <section className="hidden py-24 relative z-10 bg-white/50 border-t border-blue-100">
@@ -284,6 +357,9 @@ export default function WebDevelopment() {
           </Link>
         </div>
       </section>
+
+      {/* Internal Linking / Related Services */}
+      <RelatedServices services={relatedServices} />
     </div>
   );
 }

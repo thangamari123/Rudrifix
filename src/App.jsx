@@ -24,6 +24,15 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'))
 const HtmlSitemap = lazy(() => import('./pages/HtmlSitemap'))
 
+/* ── Work / Projects Page ── */
+const Projects = lazy(() => import('./pages/Projects'))
+
+/* ── Contact Page ── */
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+
+/* ── Location Service Page ── */
+const LocationService = lazy(() => import('./pages/LocationService'))
+
 /* ── Service pages ── */
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const SeoServices = lazy(() => import('./pages/SeoServices'))
@@ -40,6 +49,21 @@ const AppDevelopment = lazy(() => import('./pages/AppDevelopment'))
 const AutomationTools = lazy(() => import('./pages/AutomationTools'))
 const UiUxDesign = lazy(() => import('./pages/UiUxDesign'))
 const CreativeDesign = lazy(() => import('./pages/CreativeDesign'))
+
+// New Dynamic Templates
+const ComparisonTemplate = lazy(() => import('./pages/ComparisonTemplate'))
+const TechStackTemplate = lazy(() => import('./pages/TechStackTemplate'))
+const IndustryTemplate = lazy(() => import('./pages/IndustryTemplate'))
+
+// New Catalogs
+const CompareCatalog = lazy(() => import('./pages/CompareCatalog'))
+const TechnologiesCatalog = lazy(() => import('./pages/TechnologiesCatalog'))
+const IndustriesCatalog = lazy(() => import('./pages/IndustriesCatalog'))
+
+// Hidden SEO Directories
+const LocalSeoIndex = lazy(() => import('./pages/LocalSeoIndex'))
+const CityDirectory = lazy(() => import('./pages/CityDirectory'))
+
 const VideoEditing = lazy(() => import('./pages/VideoEditing'))
 const Photography = lazy(() => import('./pages/Photography'))
 const ReelsShorts = lazy(() => import('./pages/ReelsShorts'))
@@ -95,12 +119,27 @@ function App() {
         <Suspense fallback={<SectionFallback />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            {/* Static Pages */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/sitemap" element={<HtmlSitemap />} />
+            <Route path="/locations-directory" element={<LocalSeoIndex />} />
+            <Route path="/location/:citySlug" element={<CityDirectory />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            
+            {/* Catalog Hub Pages */}
+            <Route path="/compare" element={<CompareCatalog />} />
+            <Route path="/technologies" element={<TechnologiesCatalog />} />
+            <Route path="/industries" element={<IndustriesCatalog />} />
+
+            {/* Dynamic Templates */}
+            <Route path="/compare/:compareSlug" element={<ComparisonTemplate />} />
+            <Route path="/technologies/:techSlug" element={<TechStackTemplate />} />
+            <Route path="/industries/:industrySlug" element={<IndustryTemplate />} />
             
             {/* Existing Service Pages */}
-            <Route path="/services" element={<ServicesPage />} />
             <Route path="/seo-services" element={<SeoServices />} />
             <Route path="/google-ads-management" element={<GoogleAds />} />
             <Route path="/meta-ads-management" element={<MetaAds />} />
@@ -127,6 +166,9 @@ function App() {
             <Route path="/lead-gen" element={<LeadGen />} />
             <Route path="/remarketing" element={<Remarketing />} />
             <Route path="/performance-analytics" element={<PerformanceAnalytics />} />
+
+            {/* Dynamic Location Service Route (Catch-all for localized pages) */}
+            <Route path="/:localSlug" element={<LocationService />} />
           </Routes>
         </Suspense>
       </main>

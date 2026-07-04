@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
+import { buildWebPageSchema } from '../utils/schemaBuilders';
 import Services from '../components/Services';
 
 export default function ServicesPage() {
@@ -7,20 +8,23 @@ export default function ServicesPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <>
-      <Helmet>
-        <title>Our Services | Rudrifix Digital Marketing Agency</title>
-        <meta
-          name="description"
-          content="Explore our comprehensive digital solutions including Web Development, SEO, Performance Marketing, UI/UX Design, and Automation tools."
-        />
-      </Helmet>
+  const pageTitle = "Our Services | Rudrifix Digital Marketing Agency";
+  const pageDescription = "Explore our comprehensive digital solutions including Web Development, SEO, Performance Marketing, UI/UX Design, and Automation tools.";
+  
+  const schemas = [
+    buildWebPageSchema(pageTitle, pageDescription, "https://rudrifix.com/services")
+  ];
 
-      {/* Wrapper to account for fixed navbar */}
-      <div className="pt-20 bg-gray-50 min-h-screen">
-        <Services />
-      </div>
-    </>
+  return (
+    <div className="pt-20 bg-[#F8FAFC] min-h-screen">
+      <SEO 
+        title={pageTitle}
+        description={pageDescription}
+        keywords="web development, SEO, digital marketing, UI/UX design, performance marketing, automation tools"
+        canonicalUrl="/services"
+        schemas={schemas}
+      />
+      <Services />
+    </div>
   );
 }

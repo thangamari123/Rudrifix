@@ -14,13 +14,12 @@ const footerLinks = {
   company: [
     { name: 'Home', href: '/#home' },
     { name: 'Audit tool', href: '/#audit' },
-    { name: 'Work', href: '/#work' },
-    { name: 'Contact', href: '/#contact' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact', href: '/contact' },
   ],
-  support: [
+  legal: [
     { name: 'Privacy Policy', href: '/privacy-policy' },
-    { name: 'Terms & Conditions', href: '/terms-and-conditions' },
-    { name: 'Sitemap', href: '/sitemap' }
+    { name: 'Terms & Conditions', href: '/terms-and-conditions' }
   ],
 }
 
