@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Globe, MapPin, Share2, Megaphone, BarChart3, ArrowRight, Lock } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
@@ -45,6 +46,7 @@ const questions = [
 export default function BusinessAudit() {
   const [ref, isInView] = useInView({ threshold: 0.05 })
   const [answers, setAnswers] = useState({})
+  const navigate = useNavigate()
 
   const handleAnswer = (id, value) => {
     setAnswers((prev) => ({ ...prev, [id]: value }))
@@ -228,7 +230,15 @@ export default function BusinessAudit() {
           <button
             onClick={() => {
               if (allAnswered) {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                navigate('/contact', {
+                  state: {
+                    auditData: {
+                      answers,
+                      score,
+                      scoreLabel
+                    }
+                  }
+                })
               }
             }}
             disabled={!allAnswered}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, User, Phone, Mail, Building2, Layers, MessageSquare, Shield } from 'lucide-react'
 import { useInView } from '../hooks/useInView'
@@ -8,6 +9,9 @@ const serviceOptions = ['Meta Ads (Facebook & Instagram)', 'Website Development'
 
 export default function Contact() {
   const [ref, isInView] = useInView({ threshold: 0.05 })
+  const location = useLocation()
+  const auditData = location.state?.auditData
+
   const [form, setForm] = useState({ name: '', phone: '', email: '', business: '', service: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -19,32 +23,50 @@ export default function Contact() {
     setIsSubmitting(true)
 
     try {
-      // 1. Real Backend Call to Google Apps Script
+      // Build WhatsApp Message
+      let waText = `*New Lead from Website*\n\n`
+      waText += `*Name:* ${form.name}\n`
+      waText += `*Phone:* ${form.phone}\n`
+      waText += `*Email:* ${form.email}\n`
+      waText += `*Business Type:* ${form.business}\n`
+      waText += `*Interested In:* ${form.service}\n`
+      if (form.message) waText += `*Message:* ${form.message}\n`
+
+      if (auditData) {
+        waText += `\n*--- Free Business Audit Results ---*\n`
+        waText += `*Score:* ${auditData.score}/5\n`
+        waText += `*Analysis:* ${auditData.scoreLabel?.text || ''}\n`
+        waText += `*Website:* ${auditData.answers[1] ? 'Yes' : 'No'}\n`
+        waText += `*Google Maps:* ${auditData.answers[2] ? 'Yes' : 'No'}\n`
+        waText += `*Social Media (3x/wk):* ${auditData.answers[3] ? 'Yes' : 'No'}\n`
+        waText += `*Paid Ads:* ${auditData.answers[4] ? 'Yes' : 'No'}\n`
+        waText += `*Analytics:* ${auditData.answers[5] ? 'Yes' : 'No'}\n`
+      }
+
+      // 1. Real Backend Call to Google Apps Script (run asynchronously without blocking)
       const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb0bCuo7r4WQbdF1Gt2UNt2bj0tV_UURYd_tU5Jtg6IGEtdeuo9gKLtPQ08pjQLyE/exec';
 
-      // We use a simple fetch POST. Note: Google Script might require 'no-cors' 
-      // or specific header handling depending on your Apps Script code.
-      await fetch(GOOGLE_SCRIPT_URL, {
+      fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // Standard for simple Google Script web apps to avoid CORS issues
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
           date: new Date().toLocaleString(),
-          source: 'Contact Form'
+          source: auditData ? 'Audit + Contact Form' : 'Contact Form'
         }),
-      });
+      }).catch(err => console.error('Lead storage failed:', err));
 
-      console.log('Lead data exported to Excel and transmitted to Google Sheet.');
+      // 2. Redirect to WhatsApp
+      const whatsappUrl = `https://wa.me/919487816005?text=${encodeURIComponent(waText)}`
+      window.open(whatsappUrl, '_blank')
 
-      // 4. Success state
+      // 3. Success state
       setSubmitted(true)
       setForm({ name: '', phone: '', email: '', business: '', service: '', message: '' })
       setTimeout(() => setSubmitted(false), 5000)
     } catch (error) {
-      console.error('Lead storage failed:', error)
+      console.error('Submission failed:', error)
     } finally {
       setIsSubmitting(false)
     }
