@@ -254,14 +254,13 @@ export default function Hero() {
                 <WhatsAppIcon />
                 WhatsApp
               </a>
-              <a
-                href="#contact"
-                onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              <Link
+                to="/contact"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all"
               >
                 <CalendarCheck2 size={15} />
                 Book a Call
-              </a>
+              </Link>
             </div>
           </motion.div>
 
