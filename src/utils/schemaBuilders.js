@@ -172,4 +172,14 @@ export const buildLocalBusinessSchema = (locationName, description, url) => ({
   }
 });
 
-
+export const buildAboutPageSchema = (title, description, url) => ({
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": title,
+  "description": description,
+  "url": url,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rudrifix"
+  }
+});

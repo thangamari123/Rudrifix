@@ -30,6 +30,9 @@ const Projects = lazy(() => import('./pages/Projects'))
 /* ── Contact Page ── */
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 
+/* ── About Page ── */
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+
 /* ── Location Service Page ── */
 const LocationService = lazy(() => import('./pages/LocationService'))
 
@@ -139,6 +142,9 @@ function App() {
             <Route path="/technologies/:techSlug" element={<TechStackTemplate />} />
             <Route path="/industries/:industrySlug" element={<IndustryTemplate />} />
             
+            {/* Core Pages */}
+            <Route path="/about" element={<AboutPage />} />
+
             {/* Existing Service Pages */}
             <Route path="/seo-services" element={<SeoServices />} />
             <Route path="/google-ads-management" element={<GoogleAds />} />
