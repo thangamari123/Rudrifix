@@ -149,71 +149,70 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* ── Card 3: Software Dev ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-6 border border-blue-100/60 shadow-sm group hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex gap-4 items-start relative overflow-hidden"
-          >
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-3xl" />
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 group-hover:scale-110 transition-transform">
-              <Code2 size={24} strokeWidth={2} />
-            </div>
-            <div>
-              <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-1">Software Development</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">Web, mobile & SaaS apps built for scale and performance.</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
+          {/* ── Cards 3-5: Service Pillars — compact 3-col grid on ALL screens ── */}
+          <div className="lg:col-span-12 grid grid-cols-3 gap-2 sm:gap-3">
+
+            {/* Software Dev */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white rounded-2xl p-3 sm:p-5 border border-blue-100/60 shadow-sm group hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-start relative overflow-hidden"
+            >
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" />
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-2 sm:mb-3 group-hover:scale-110 transition-transform shrink-0">
+                <Code2 size={18} strokeWidth={2} className="sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="font-bold text-[#0F172A] text-[11px] sm:text-base leading-tight mb-1">Software <span className="hidden sm:inline">Development</span><span className="sm:hidden">Dev</span></h3>
+              <p className="text-gray-500 text-[10px] sm:text-sm leading-snug hidden sm:block">Web, mobile &amp; SaaS apps built for scale.</p>
+              <div className="mt-2 flex flex-wrap gap-1">
                 {['React', 'Node.js', 'Flutter'].map(t => (
-                  <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 font-semibold border border-blue-100">{t}</span>
+                  <span key={t} className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-600 font-semibold border border-blue-100 hidden sm:inline-block">{t}</span>
                 ))}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* ── Card 4: AI Automation ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-6 border border-indigo-100/60 shadow-sm group hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex gap-4 items-start relative overflow-hidden"
-          >
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-violet-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-3xl" />
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0 group-hover:scale-110 transition-transform">
-              <Bot size={24} strokeWidth={2} />
-            </div>
-            <div>
-              <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-1">AI Automation</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">Automate workflows and business processes with smart AI tools.</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
+            {/* AI Automation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="bg-white rounded-2xl p-3 sm:p-5 border border-indigo-100/60 shadow-sm group hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-start relative overflow-hidden"
+            >
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-violet-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" />
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 mb-2 sm:mb-3 group-hover:scale-110 transition-transform shrink-0">
+                <Bot size={18} strokeWidth={2} className="sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="font-bold text-[#0F172A] text-[11px] sm:text-base leading-tight mb-1">AI <span className="hidden sm:inline">Automation</span><span className="sm:hidden">AI</span></h3>
+              <p className="text-gray-500 text-[10px] sm:text-sm leading-snug hidden sm:block">Automate workflows with smart AI tools.</p>
+              <div className="mt-2 flex flex-wrap gap-1">
                 {['ChatGPT', 'n8n', 'Zapier'].map(t => (
-                  <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 font-semibold border border-indigo-100">{t}</span>
+                  <span key={t} className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 font-semibold border border-indigo-100 hidden sm:inline-block">{t}</span>
                 ))}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* ── Card 5: Digital Marketing ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="lg:col-span-4 bg-white rounded-3xl p-6 border border-emerald-100/60 shadow-sm group hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex gap-4 items-start relative overflow-hidden"
-          >
-            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-3xl" />
-            <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-110 transition-transform">
-              <Megaphone size={24} strokeWidth={2} />
-            </div>
-            <div>
-              <h3 className="font-bold text-[#0F172A] text-base sm:text-lg mb-1">Digital Marketing</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">Data-driven strategies — SEO, Ads & Social Media that convert.</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
+            {/* Digital Marketing */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white rounded-2xl p-3 sm:p-5 border border-emerald-100/60 shadow-sm group hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-start relative overflow-hidden"
+            >
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" />
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-2 sm:mb-3 group-hover:scale-110 transition-transform shrink-0">
+                <Megaphone size={18} strokeWidth={2} className="sm:w-6 sm:h-6" />
+              </div>
+              <h3 className="font-bold text-[#0F172A] text-[11px] sm:text-base leading-tight mb-1">Digital <span className="hidden sm:inline">Marketing</span><span className="sm:hidden">Mktg</span></h3>
+              <p className="text-gray-500 text-[10px] sm:text-sm leading-snug hidden sm:block">SEO, Ads &amp; Social Media that convert.</p>
+              <div className="mt-2 flex flex-wrap gap-1">
                 {['SEO', 'Meta Ads', 'Google Ads'].map(t => (
-                  <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-semibold border border-emerald-100">{t}</span>
+                  <span key={t} className="text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-semibold border border-emerald-100 hidden sm:inline-block">{t}</span>
                 ))}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+          </div>
 
           {/* ── Card 6: CONTACT BAR (full width bottom) ── */}
           <motion.div
