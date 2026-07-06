@@ -19,7 +19,7 @@ export default function LocationService() {
   if (!localSlug || !localSlug.includes('-in-')) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center pt-32">
-        <h1 className="text-3xl font-bold text-gray-400">Page Not Found</h1>
+        <h2 className="text-3xl font-bold text-gray-400">Page Not Found</h2>
       </div>
     );
   }
@@ -36,7 +36,7 @@ export default function LocationService() {
   if (!serviceName || !locationName || !locationMetadata[locationSlug?.toLowerCase()]) {
     return (
       <div className="min-h-[50vh] flex items-center justify-center pt-32">
-        <h1 className="text-3xl font-bold text-gray-400">Location Not Found</h1>
+        <h2 className="text-3xl font-bold text-gray-400">Location Not Found</h2>
       </div>
     );
   }

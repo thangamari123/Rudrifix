@@ -242,9 +242,9 @@ export default function AboutPage() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight mb-8 leading-[1.1]"
           >
-            Engineering Digital <br className="hidden md:block" />
+            About <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
-              Excellence
+              Rudrifix
             </span>
           </motion.h1>
 

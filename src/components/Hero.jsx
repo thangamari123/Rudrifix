@@ -128,12 +128,12 @@ export default function Hero() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-blue-600 -rotate-12">
                   <path d="M12 4V2M4 12H2M19.07 4.93L20.48 3.52M4.93 19.07L3.52 20.48" />
                 </svg>
-                <span className="font-['Satisfy'] text-blue-600 block text-center lg:text-left text-4xl sm:text-5xl -rotate-2">360° Solutions</span>
+                <span className="font-['Satisfy'] text-blue-600 block text-center lg:text-left text-4xl sm:text-5xl -rotate-2">Rudrifix –</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-blue-600 rotate-12">
                   <path d="M12 4V2M20 12h2M4.93 4.93L3.52 3.52M19.07 19.07l1.41 1.41" />
                 </svg>
               </div>
-              Built To <span className="text-blue-600 block sm:inline">Scale Your Brand</span>
+              Software Development, <br className="hidden sm:block" /> AI Automation & <span className="text-blue-600 block sm:inline">Digital Marketing Company</span>
             </motion.h1>
 
             {/* Modern Perspective Flip Service Flow */}

@@ -24,6 +24,7 @@ export default function ServicesPage() {
         canonicalUrl="/services"
         schemas={schemas}
       />
+      <h1 className="sr-only">Software Development Services</h1>
       <Services />
     </div>
   );

@@ -26,6 +26,7 @@ export default function ContactPage() {
       />
       
       {/* Reusing the beautifully designed Contact component */}
+      <h1 className="sr-only">Contact Rudrifix</h1>
       <Contact />
     </div>
   );
