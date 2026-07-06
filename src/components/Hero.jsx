@@ -237,46 +237,49 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
-            className="lg:col-span-12 bg-white rounded-3xl px-5 py-4 border border-blue-100/60 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4"
+            className="lg:col-span-12 bg-white rounded-2xl sm:rounded-3xl px-3 sm:px-5 py-3 sm:py-4 border border-blue-100/60 shadow-sm"
           >
-            {/* Left: Trust signals */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
+            {/* Trust signals — single row on mobile */}
+            <div className="flex items-center justify-center gap-3 sm:gap-6 mb-2.5 sm:mb-3">
               {[
                 { icon: CheckCircle, text: 'No Hidden Fees', color: 'text-emerald-500' },
                 { icon: CheckCircle, text: 'Dedicated Support', color: 'text-blue-500' },
                 { icon: CheckCircle, text: 'On-Time Delivery', color: 'text-indigo-500' },
               ].map(({ icon: Icon, text, color }) => (
-                <div key={text} className="flex items-center gap-1.5">
-                  <Icon size={14} className={color} />
-                  <span className="text-xs sm:text-sm text-gray-600 font-medium">{text}</span>
+                <div key={text} className="flex items-center gap-1">
+                  <Icon size={11} className={`${color} shrink-0`} />
+                  <span className="text-[10px] sm:text-sm text-gray-600 font-medium whitespace-nowrap">{text}</span>
                 </div>
               ))}
             </div>
 
-            {/* Right: Contact buttons */}
-            <div className="flex items-center gap-3 shrink-0">
+            {/* Divider */}
+            <div className="w-full h-px bg-gray-100 mb-2.5 sm:mb-3" />
+
+            {/* Buttons — equal width, side by side on mobile */}
+            <div className="grid grid-cols-3 gap-2">
               <a
                 href="tel:+919487816005"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 transition-all"
+                className="flex items-center justify-center gap-1.5 py-2.5 sm:py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-xs sm:text-sm hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 transition-all"
               >
-                <Phone size={15} />
-                Call Us
+                <Phone size={13} className="shrink-0" />
+                <span>Call Us</span>
               </a>
               <a
                 href="https://wa.me/919487816005"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-sm hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all"
+                className="flex items-center justify-center gap-1.5 py-2.5 sm:py-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-xs sm:text-sm hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all"
               >
                 <WhatsAppIcon />
-                WhatsApp
+                <span>WhatsApp</span>
               </a>
               <Link
                 to="/contact"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all"
+                className="flex items-center justify-center gap-1.5 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all"
               >
-                <CalendarCheck2 size={15} />
-                Book a Call
+                <CalendarCheck2 size={13} className="shrink-0" />
+                <span>Book a Call</span>
               </Link>
             </div>
           </motion.div>
