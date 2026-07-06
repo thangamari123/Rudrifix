@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, PenTool, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function ContentMarketing() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Content Marketing | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Content Marketing services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Content Marketing Chennai, Content Marketing Coimbatore, Content Marketing Madurai, Content Marketing Tiruchirappalli, Content Marketing Salem, Content Marketing Tiruppur, Content Marketing Erode, Content Marketing Tirunelveli, Content Marketing Thoothukudi, Content Marketing Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/content-marketing"
+        title="Content Marketing | Expert Agency Services | Rudrifix"
+        description="Professional Content Marketing services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Content Marketing Chennai, Content Marketing Coimbatore, Content Marketing Madurai, Content Marketing Tiruchirappalli, Content Marketing Salem, Content Marketing Tiruppur, Content Marketing Erode, Content Marketing Tirunelveli, Content Marketing Thoothukudi, Content Marketing Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

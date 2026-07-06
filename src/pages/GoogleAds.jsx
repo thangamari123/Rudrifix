@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, MousePointerClick, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function GoogleAds() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Google Ads Management Agency in Chennai | Rudrifix</title>
-        <meta name="description" content="Maximize your ROI with expert Google Ads management. Our targeted PPC campaigns drive high-intent traffic and immediate leads for your business." />
-        <meta name="keywords" content="Google Ads Management Agency Chennai, Google Ads Management Agency Coimbatore, Google Ads Management Agency Madurai, Google Ads Management Agency Tiruchirappalli, Google Ads Management Agency Salem, Google Ads Management Agency Tiruppur, Google Ads Management Agency Erode, Google Ads Management Agency Tirunelveli, Google Ads Management Agency Thoothukudi, Google Ads Management Agency Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/google-ads-management"
+        title="Google Ads Management Agency in Chennai | Rudrifix"
+        description="Maximize your ROI with expert Google Ads management. Our targeted PPC campaigns drive high-intent traffic and immediate leads for your business."
+        keywords="Google Ads Management Agency Chennai, Google Ads Management Agency Coimbatore, Google Ads Management Agency Madurai, Google Ads Management Agency Tiruchirappalli, Google Ads Management Agency Salem, Google Ads Management Agency Tiruppur, Google Ads Management Agency Erode, Google Ads Management Agency Tirunelveli, Google Ads Management Agency Thoothukudi, Google Ads Management Agency Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

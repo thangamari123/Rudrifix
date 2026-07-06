@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Heart, Users, ChevronDown, Rocket, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function SocialMedia() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Social Media Marketing Agency in Chennai | Rudrifix</title>
-        <meta name="description" content="Build brand awareness and engage with your community through expert Social Media Marketing. We manage your presence across all major platforms." />
-        <meta name="keywords" content="Social Media Marketing Agency Chennai, Social Media Marketing Agency Coimbatore, Social Media Marketing Agency Madurai, Social Media Marketing Agency Tiruchirappalli, Social Media Marketing Agency Salem, Social Media Marketing Agency Tiruppur, Social Media Marketing Agency Erode, Social Media Marketing Agency Tirunelveli, Social Media Marketing Agency Thoothukudi, Social Media Marketing Agency Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/social-media-marketing"
+        title="Social Media Marketing Agency in Chennai | Rudrifix"
+        description="Build brand awareness and engage with your community through expert Social Media Marketing. We manage your presence across all major platforms."
+        keywords="Social Media Marketing Agency Chennai, Social Media Marketing Agency Coimbatore, Social Media Marketing Agency Madurai, Social Media Marketing Agency Tiruchirappalli, Social Media Marketing Agency Salem, Social Media Marketing Agency Tiruppur, Social Media Marketing Agency Erode, Social Media Marketing Agency Tirunelveli, Social Media Marketing Agency Thoothukudi, Social Media Marketing Agency Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

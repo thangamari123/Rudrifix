@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, LineChart, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function PerformanceAnalytics() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Performance Analytics | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Performance Analytics services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Performance Analytics Chennai, Performance Analytics Coimbatore, Performance Analytics Madurai, Performance Analytics Tiruchirappalli, Performance Analytics Salem, Performance Analytics Tiruppur, Performance Analytics Erode, Performance Analytics Tirunelveli, Performance Analytics Thoothukudi, Performance Analytics Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/performance-analytics"
+        title="Performance Analytics | Expert Agency Services | Rudrifix"
+        description="Professional Performance Analytics services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Performance Analytics Chennai, Performance Analytics Coimbatore, Performance Analytics Madurai, Performance Analytics Tiruchirappalli, Performance Analytics Salem, Performance Analytics Tiruppur, Performance Analytics Erode, Performance Analytics Tirunelveli, Performance Analytics Thoothukudi, Performance Analytics Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Users, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function LeadGen() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Lead Gen Campaigns | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Lead Gen Campaigns services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Lead Gen Campaigns Chennai, Lead Gen Campaigns Coimbatore, Lead Gen Campaigns Madurai, Lead Gen Campaigns Tiruchirappalli, Lead Gen Campaigns Salem, Lead Gen Campaigns Tiruppur, Lead Gen Campaigns Erode, Lead Gen Campaigns Tirunelveli, Lead Gen Campaigns Thoothukudi, Lead Gen Campaigns Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/lead-gen"
+        title="Lead Gen Campaigns | Expert Agency Services | Rudrifix"
+        description="Professional Lead Gen Campaigns services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Lead Gen Campaigns Chennai, Lead Gen Campaigns Coimbatore, Lead Gen Campaigns Madurai, Lead Gen Campaigns Tiruchirappalli, Lead Gen Campaigns Salem, Lead Gen Campaigns Tiruppur, Lead Gen Campaigns Erode, Lead Gen Campaigns Tirunelveli, Lead Gen Campaigns Thoothukudi, Lead Gen Campaigns Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

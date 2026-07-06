@@ -7,10 +7,10 @@ export default function SEO({
   keywords, 
   canonicalUrl, 
   type = "website", 
-  image = "https://rudrifix.com/og-image.jpg",
+  image = "https://www.rudrifix.com/og-image.jpg",
   schemas = [] 
 }) {
-  const siteUrl = "https://rudrifix.com";
+  const siteUrl = "https://www.rudrifix.com";
   const url = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
 
   return (
@@ -22,6 +22,11 @@ export default function SEO({
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={url} />
 
+      {/* Robots Directives */}
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
@@ -29,6 +34,7 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content="Rudrifix" />
+      <meta property="og:locale" content="en_US" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -36,6 +42,7 @@ export default function SEO({
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
+      <meta name="twitter:creator" content="@rudrifix" />
 
       {/* JSON-LD Schemas */}
       {schemas.map((schema, index) => (

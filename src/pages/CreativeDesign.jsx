@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Palette, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function CreativeDesign() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Creative Design | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Creative Design services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Creative Design Chennai, Creative Design Coimbatore, Creative Design Madurai, Creative Design Tiruchirappalli, Creative Design Salem, Creative Design Tiruppur, Creative Design Erode, Creative Design Tirunelveli, Creative Design Thoothukudi, Creative Design Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/creative-design"
+        title="Creative Design | Expert Agency Services | Rudrifix"
+        description="Professional Creative Design services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Creative Design Chennai, Creative Design Coimbatore, Creative Design Madurai, Creative Design Tiruchirappalli, Creative Design Salem, Creative Design Tiruppur, Creative Design Erode, Creative Design Tirunelveli, Creative Design Thoothukudi, Creative Design Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

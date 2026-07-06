@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Database, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function CustomSaaS() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Custom SaaS & CRM | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Custom SaaS & CRM services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Custom SaaS & CRM Chennai, Custom SaaS & CRM Coimbatore, Custom SaaS & CRM Madurai, Custom SaaS & CRM Tiruchirappalli, Custom SaaS & CRM Salem, Custom SaaS & CRM Tiruppur, Custom SaaS & CRM Erode, Custom SaaS & CRM Tirunelveli, Custom SaaS & CRM Thoothukudi, Custom SaaS & CRM Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/custom-saas"
+        title="Custom SaaS & CRM | Expert Agency Services | Rudrifix"
+        description="Professional Custom SaaS & CRM services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Custom SaaS & CRM Chennai, Custom SaaS & CRM Coimbatore, Custom SaaS & CRM Madurai, Custom SaaS & CRM Tiruchirappalli, Custom SaaS & CRM Salem, Custom SaaS & CRM Tiruppur, Custom SaaS & CRM Erode, Custom SaaS & CRM Tirunelveli, Custom SaaS & CRM Thoothukudi, Custom SaaS & CRM Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

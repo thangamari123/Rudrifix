@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Video, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function VideoEditing() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Video Editing & Motion Graphics | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Video Editing & Motion Graphics services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Video Editing & Motion Graphics Chennai, Video Editing & Motion Graphics Coimbatore, Video Editing & Motion Graphics Madurai, Video Editing & Motion Graphics Tiruchirappalli, Video Editing & Motion Graphics Salem, Video Editing & Motion Graphics Tiruppur, Video Editing & Motion Graphics Erode, Video Editing & Motion Graphics Tirunelveli, Video Editing & Motion Graphics Thoothukudi, Video Editing & Motion Graphics Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/video-editing"
+        title="Video Editing & Motion Graphics | Expert Agency Services | Rudrifix"
+        description="Professional Video Editing & Motion Graphics services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Video Editing & Motion Graphics Chennai, Video Editing & Motion Graphics Coimbatore, Video Editing & Motion Graphics Madurai, Video Editing & Motion Graphics Tiruchirappalli, Video Editing & Motion Graphics Salem, Video Editing & Motion Graphics Tiruppur, Video Editing & Motion Graphics Erode, Video Editing & Motion Graphics Tirunelveli, Video Editing & Motion Graphics Thoothukudi, Video Editing & Motion Graphics Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

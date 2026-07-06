@@ -2,8 +2,8 @@ export const buildOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Rudrifix",
-  "url": "https://rudrifix.com",
-  "logo": "https://rudrifix.com/rudrifix%20logo.webp",
+  "url": "https://www.rudrifix.com",
+  "logo": "https://www.rudrifix.com/rudrifix%20logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+91-9003333333", // Replace with real phone number later
@@ -22,10 +22,10 @@ export const buildWebSiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Rudrifix",
-  "url": "https://rudrifix.com",
+  "url": "https://www.rudrifix.com",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://rudrifix.com/search?q={search_term_string}",
+    "target": "https://www.rudrifix.com/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 });
@@ -156,7 +156,7 @@ export const buildLocalBusinessSchema = (locationName, description, url) => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": `Rudrifix - ${locationName}`,
-  "image": "https://rudrifix.com/rudrifix%20logo.webp",
+  "image": "https://www.rudrifix.com/rudrifix%20logo.webp",
   "url": url,
   "telephone": "+91-9003333333", // Replace with real number
   "description": description,

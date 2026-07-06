@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Camera, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function Photography() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Photography & Videography | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Photography & Videography services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Photography & Videography Chennai, Photography & Videography Coimbatore, Photography & Videography Madurai, Photography & Videography Tiruchirappalli, Photography & Videography Salem, Photography & Videography Tiruppur, Photography & Videography Erode, Photography & Videography Tirunelveli, Photography & Videography Thoothukudi, Photography & Videography Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/photography"
+        title="Photography & Videography | Expert Agency Services | Rudrifix"
+        description="Professional Photography & Videography services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Photography & Videography Chennai, Photography & Videography Coimbatore, Photography & Videography Madurai, Photography & Videography Tiruchirappalli, Photography & Videography Salem, Photography & Videography Tiruppur, Photography & Videography Erode, Photography & Videography Tirunelveli, Photography & Videography Thoothukudi, Photography & Videography Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, Database, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function CustomSaaSCrm() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Custom SaaS CRM Development | Rudrifix</title>
-        <meta name="description" content="Build scalable, custom SaaS CRM solutions tailored to your business processes. Enhance team productivity and sales with Rudrifix." />
-        <meta name="keywords" content="Custom SaaS CRM Development Chennai, Custom SaaS CRM Development Coimbatore, Custom SaaS CRM Development Madurai, Custom SaaS CRM Development Tiruchirappalli, Custom SaaS CRM Development Salem, Custom SaaS CRM Development Tiruppur, Custom SaaS CRM Development Erode, Custom SaaS CRM Development Tirunelveli, Custom SaaS CRM Development Thoothukudi, Custom SaaS CRM Development Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/custom-saas-crm"
+        title="Custom SaaS CRM Development | Rudrifix"
+        description="Build scalable, custom SaaS CRM solutions tailored to your business processes. Enhance team productivity and sales with Rudrifix."
+        keywords="Custom SaaS CRM Development Chennai, Custom SaaS CRM Development Coimbatore, Custom SaaS CRM Development Madurai, Custom SaaS CRM Development Tiruchirappalli, Custom SaaS CRM Development Salem, Custom SaaS CRM Development Tiruppur, Custom SaaS CRM Development Erode, Custom SaaS CRM Development Tirunelveli, Custom SaaS CRM Development Thoothukudi, Custom SaaS CRM Development Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

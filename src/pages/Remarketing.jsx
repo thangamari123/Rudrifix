@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, RefreshCw, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function Remarketing() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Remarketing & Retargeting | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Remarketing & Retargeting services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Remarketing & Retargeting Chennai, Remarketing & Retargeting Coimbatore, Remarketing & Retargeting Madurai, Remarketing & Retargeting Tiruchirappalli, Remarketing & Retargeting Salem, Remarketing & Retargeting Tiruppur, Remarketing & Retargeting Erode, Remarketing & Retargeting Tirunelveli, Remarketing & Retargeting Thoothukudi, Remarketing & Retargeting Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/remarketing"
+        title="Remarketing & Retargeting | Expert Agency Services | Rudrifix"
+        description="Professional Remarketing & Retargeting services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Remarketing & Retargeting Chennai, Remarketing & Retargeting Coimbatore, Remarketing & Retargeting Madurai, Remarketing & Retargeting Tiruchirappalli, Remarketing & Retargeting Salem, Remarketing & Retargeting Tiruppur, Remarketing & Retargeting Erode, Remarketing & Retargeting Tirunelveli, Remarketing & Retargeting Thoothukudi, Remarketing & Retargeting Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

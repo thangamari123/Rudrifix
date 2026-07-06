@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rudrifix.com/sitemap.xml
+Sitemap: https://www.rudrifix.com/sitemap.xml

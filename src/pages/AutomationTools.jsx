@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Bot, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function AutomationTools() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Automation Tools | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional Automation Tools services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="Automation Tools Chennai, Automation Tools Coimbatore, Automation Tools Madurai, Automation Tools Tiruchirappalli, Automation Tools Salem, Automation Tools Tiruppur, Automation Tools Erode, Automation Tools Tirunelveli, Automation Tools Thoothukudi, Automation Tools Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/automation-tools"
+        title="Automation Tools | Expert Agency Services | Rudrifix"
+        description="Professional Automation Tools services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="Automation Tools Chennai, Automation Tools Coimbatore, Automation Tools Madurai, Automation Tools Tiruchirappalli, Automation Tools Salem, Automation Tools Tiruppur, Automation Tools Erode, Automation Tools Tirunelveli, Automation Tools Thoothukudi, Automation Tools Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

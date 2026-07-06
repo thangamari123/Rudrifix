@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, Megaphone, Target, ChevronDown, Rocket, RefreshCw } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function MetaAds() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>Meta Ads Management Agency | Facebook & Instagram Ads | Rudrifix</title>
-        <meta name="description" content="Reach your ideal audience with our expert Meta (Facebook & Instagram) Ads management. We create highly targeted, scroll-stopping campaigns that drive sales." />
-        <meta name="keywords" content="Meta Ads Management Agency Chennai, Meta Ads Management Agency Coimbatore, Meta Ads Management Agency Madurai, Meta Ads Management Agency Tiruchirappalli, Meta Ads Management Agency Salem, Meta Ads Management Agency Tiruppur, Meta Ads Management Agency Erode, Meta Ads Management Agency Tirunelveli, Meta Ads Management Agency Thoothukudi, Meta Ads Management Agency Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/meta-ads-management"
+        title="Meta Ads Management Agency | Facebook & Instagram Ads | Rudrifix"
+        description="Reach your ideal audience with our expert Meta (Facebook & Instagram) Ads management. We create highly targeted, scroll-stopping campaigns that drive sales."
+        keywords="Meta Ads Management Agency Chennai, Meta Ads Management Agency Coimbatore, Meta Ads Management Agency Madurai, Meta Ads Management Agency Tiruchirappalli, Meta Ads Management Agency Salem, Meta Ads Management Agency Tiruppur, Meta Ads Management Agency Erode, Meta Ads Management Agency Tirunelveli, Meta Ads Management Agency Thoothukudi, Meta Ads Management Agency Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

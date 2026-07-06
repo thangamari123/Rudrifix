@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ArrowRight, CheckCircle2, ShoppingCart, Zap, Search, ChevronDown, Rocket, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -35,11 +35,12 @@ export default function EcommerceSolutions() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
-      <Helmet>
-        <title>E-Commerce Solutions | Expert Agency Services | Rudrifix</title>
-        <meta name="description" content="Professional E-Commerce Solutions services by Rudrifix. We help businesses scale with data-driven strategies and premium execution." />
-        <meta name="keywords" content="E-Commerce Solutions Chennai, E-Commerce Solutions Coimbatore, E-Commerce Solutions Madurai, E-Commerce Solutions Tiruchirappalli, E-Commerce Solutions Salem, E-Commerce Solutions Tiruppur, E-Commerce Solutions Erode, E-Commerce Solutions Tirunelveli, E-Commerce Solutions Thoothukudi, E-Commerce Solutions Tuticorin" />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/ecommerce-solutions"
+        title="E-Commerce Solutions | Expert Agency Services | Rudrifix"
+        description="Professional E-Commerce Solutions services by Rudrifix. We help businesses scale with data-driven strategies and premium execution."
+        keywords="E-Commerce Solutions Chennai, E-Commerce Solutions Coimbatore, E-Commerce Solutions Madurai, E-Commerce Solutions Tiruchirappalli, E-Commerce Solutions Salem, E-Commerce Solutions Tiruppur, E-Commerce Solutions Erode, E-Commerce Solutions Tirunelveli, E-Commerce Solutions Thoothukudi, E-Commerce Solutions Tuticorin"
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { MapPin, Globe, Layout, Megaphone } from 'lucide-react';
 
@@ -85,10 +85,11 @@ export default function HTMLSitemap() {
 
   return (
     <div className="min-h-screen bg-[#E0F1FB] text-gray-900 pt-32 pb-24">
-      <Helmet>
-        <title>HTML Sitemap | Rudrifix Digital Agency</title>
-        <meta name="description" content="Navigate the complete Rudrifix website. Find our core pages, comprehensive digital marketing services, and specific service areas across Tamil Nadu." />
-      </Helmet>
+      <SEO 
+        canonicalUrl="/sitemap"
+        title="HTML Sitemap | Rudrifix Digital Agency"
+        description="Navigate the complete Rudrifix website. Find our core pages, comprehensive digital marketing services, and specific service areas across Tamil Nadu."
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
