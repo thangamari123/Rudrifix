@@ -146,32 +146,7 @@ export default function Hero() {
                 <span className="text-white/60 text-xs font-medium">Join 20+ happy clients</span>
               </div>
 
-              {/* Brand Logos Grid */}
-              <div className="mb-1">
-                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mb-2">Brands We've Worked With</p>
-                <div className="grid grid-cols-4 gap-2">
-                  {[
-                    { name: 'Meta', color: 'from-blue-600 to-blue-500', letter: 'M' },
-                    { name: 'Google', color: 'from-red-500 to-yellow-400', letter: 'G' },
-                    { name: 'Shopify', color: 'from-green-600 to-emerald-500', letter: 'S' },
-                    { name: 'HubSpot', color: 'from-orange-500 to-orange-400', letter: 'H' },
-                    { name: 'Notion', color: 'from-gray-700 to-gray-600', letter: 'N' },
-                    { name: 'Figma', color: 'from-purple-600 to-pink-500', letter: 'F' },
-                    { name: 'Canva', color: 'from-cyan-500 to-blue-400', letter: 'C' },
-                    { name: 'Zoho', color: 'from-rose-600 to-rose-500', letter: 'Z' },
-                  ].map(brand => (
-                    <div
-                      key={brand.name}
-                      className="bg-white/10 rounded-xl p-2 flex flex-col items-center justify-center border border-white/10 hover:bg-white/15 transition-colors"
-                    >
-                      <div className={`w-7 h-7 rounded-lg bg-gradient-to-br ${brand.color} flex items-center justify-center text-white font-black text-sm mb-1`}>
-                        {brand.letter}
-                      </div>
-                      <span className="text-white/50 text-[8px] font-semibold leading-none">{brand.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+
             </div>
 
             {/* Stats */}
