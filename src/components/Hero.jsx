@@ -168,7 +168,7 @@ export default function Hero() {
           </motion.div>
 
           {/* ── Cards 3-5: Service Pillars — compact 3-col grid on ALL screens ── */}
-          <div className="lg:col-span-12 grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="lg:col-span-12 hidden lg:grid grid-cols-3 gap-2 sm:gap-3">
 
             {/* Software Dev */}
             <motion.div
