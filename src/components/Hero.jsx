@@ -145,7 +145,26 @@ export default function Hero() {
                 </div>
                 <span className="text-white/60 text-xs font-medium">Join 20+ happy clients</span>
               </div>
-
+              {/* Animated Growth Bars */}
+              <div className="flex-1 flex items-end gap-2 sm:gap-3 my-6 sm:my-8 h-20 sm:h-24">
+                {[30, 50, 40, 70, 55, 90, 75, 100].map((height, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ height: "20%" }}
+                    animate={{ height: `${height}%` }}
+                    transition={{
+                      duration: 1.5 + (i * 0.1),
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: i * 0.1,
+                      ease: "easeInOut"
+                    }}
+                    className="w-full bg-gradient-to-t from-blue-600/30 to-blue-400/80 rounded-t-sm relative group"
+                  >
+                    <div className="absolute top-0 left-0 w-full h-1 bg-blue-300 rounded-t-sm opacity-80" />
+                  </motion.div>
+                ))}
+              </div>
 
             </div>
 
