@@ -117,23 +117,22 @@ export default function Hero() {
           {/* ════════ LEFT COLUMN ════════ */}
           <div className="lg:pr-8 flex flex-col items-center lg:items-start">
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="hero-heading text-center lg:text-left mb-6 w-full text-[#111827]"
+              className="hero-heading text-center lg:text-left mb-6 w-full text-[#111827] text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.15]"
             >
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-blue-600 -rotate-12">
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-blue-600 -rotate-12">
                   <path d="M12 4V2M4 12H2M19.07 4.93L20.48 3.52M4.93 19.07L3.52 20.48" />
                 </svg>
-                <span className="font-['Satisfy'] text-blue-600 block text-center lg:text-left text-4xl sm:text-5xl -rotate-2">Rudrifix –</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-blue-600 rotate-12">
+                <span className="font-['Satisfy'] text-blue-600 block text-3xl sm:text-4xl -rotate-2">Rudrifix</span>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-blue-600 rotate-12">
                   <path d="M12 4V2M20 12h2M4.93 4.93L3.52 3.52M19.07 19.07l1.41 1.41" />
                 </svg>
               </div>
-              Software Development, <br className="hidden sm:block" /> AI Automation & <span className="text-blue-600 block sm:inline">Digital Marketing Company</span>
+              Software Development, <br className="hidden lg:block" /> AI Automation & <span className="text-blue-600 block sm:inline">Digital Marketing Company</span>
             </motion.h1>
 
             {/* Modern Perspective Flip Service Flow */}
