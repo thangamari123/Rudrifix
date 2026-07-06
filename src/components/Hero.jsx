@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Rocket, Play, Code2, Bot, Megaphone, Phone, CalendarCheck2 } from 'lucide-react'
+import { Rocket, Play, Code2, Bot, Megaphone, Phone, CalendarCheck2, ArrowRight } from 'lucide-react'
 
 // Placeholder for WhatsApp Icon since Lucide doesn't have a perfect one
 const WhatsAppIcon = ({ size = 20, className = "" }) => (
