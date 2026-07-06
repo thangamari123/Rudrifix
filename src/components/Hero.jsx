@@ -166,7 +166,7 @@ export default function Hero() {
             {/* Floating Code Card */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: [-3, 3, -3] }}
+              animate={{ opacity: 1, y: 0, y: [-3, 3, -3] }}
               transition={{ delay: 0.9, y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut' } }}
               className="absolute bottom-[20%] left-[25%] w-16 h-16 bg-white rounded-2xl shadow-[0_15px_30px_-5px_rgba(0,0,0,0.1)] flex items-center justify-center text-indigo-600"
             >
