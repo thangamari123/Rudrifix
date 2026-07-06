@@ -239,14 +239,14 @@ export default function Hero() {
             {/* Right: Contact buttons */}
             <div className="flex items-center gap-3 shrink-0">
               <a
-                href="tel:+91"
+                href="tel:+919487816005"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 transition-all"
               >
                 <Phone size={15} />
                 Call Us
               </a>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919487816005"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-sm hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all"
