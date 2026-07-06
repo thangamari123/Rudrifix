@@ -211,7 +211,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#E0F1FB] text-gray-900 selection:bg-blue-500/30 overflow-x-hidden">
       <SEO 
         title="About Rudrifix | Software Development & Digital Marketing Agency"
         description="Learn about Rudrifix and founder Thanga Mari. We are a premier Software Development Company and Digital Marketing Agency building custom CRM, ERP, and SaaS."
@@ -225,7 +225,7 @@ export default function AboutPage() {
         <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-blue-400/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-violet-400/20 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -240,7 +240,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight mb-8 leading-[1.1]"
+            className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 tracking-tight mb-8 leading-[1.1]"
           >
             Engineering Digital <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
@@ -271,7 +271,7 @@ export default function AboutPage() {
       </section>
 
       {/* Custom AI Quick Summary Block */}
-      <section className="py-24 bg-white relative z-10">
+      <section className="py-12 md:py-10 md:py-16 bg-white relative z-10">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#F8FAFC] rounded-[32px] overflow-visible shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col lg:flex-row relative">
             
@@ -388,19 +388,14 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Company Story, Mission, Vision */}
-      <section className="py-24 bg-[#F8FAFC] relative z-10">
+      <section className="py-12 md:py-10 md:py-16 bg-[#F8FAFC] relative z-10">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col lg:flex-row">
             
             {/* Left Column - Dark Blue & Image */}
             <div className="w-full lg:w-[55%] flex flex-col border-r border-gray-100">
-              <div className="relative flex-1 p-8 lg:p-12 overflow-hidden bg-[#0B152A]">
-                 {/* Background Image full width */}
-                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center" />
-                 {/* Dark Blue Overlay with diagonal cut */}
-                 <div className="absolute inset-0 bg-[#0B152A]" style={{ clipPath: 'polygon(0 0, 95% 0, 65% 100%, 0% 100%)' }} />
-                 
-                 <div className="relative z-10 text-white lg:pr-16">
+              <div className="relative flex-1 p-8 lg:p-6 md:p-6 md:p-10 overflow-hidden bg-[#0B152A]">
+                 <div className="relative z-10 text-white lg:pr-8">
                    <div className="text-blue-500 font-bold text-[11px] tracking-widest uppercase mb-4">Our Story</div>
                    <h2 className="text-3xl md:text-[36px] font-black mb-6 leading-tight">
                      Building Digital <br/> Excellence,<br/>
@@ -422,7 +417,7 @@ export default function AboutPage() {
                       <div className="flex items-center gap-3">
                          <Rocket className="w-5 h-5 text-blue-500" />
                          <div>
-                           <div className="text-white font-bold text-[15px] leading-tight">100+</div>
+                           <div className="text-white font-bold text-[15px] leading-tight">15+</div>
                            <div className="text-[10px] text-gray-400">Projects Delivered</div>
                          </div>
                       </div>
@@ -430,7 +425,7 @@ export default function AboutPage() {
                       <div className="flex items-center gap-3">
                          <Users className="w-5 h-5 text-blue-500" />
                          <div>
-                           <div className="text-white font-bold text-[15px] leading-tight">50+</div>
+                           <div className="text-white font-bold text-[15px] leading-tight">20</div>
                            <div className="text-[10px] text-gray-400">Happy Clients</div>
                          </div>
                       </div>
@@ -464,7 +459,7 @@ export default function AboutPage() {
             </div>
 
             {/* Right Column - White/Off-White Cards */}
-            <div className="w-full lg:w-[45%] bg-[#F8FAFC] p-6 lg:p-10 flex flex-col justify-center gap-6 relative">
+            <div className="w-full lg:w-[45%] bg-[#F8FAFC] p-6 lg:p-6 md:p-10 flex flex-col justify-center gap-6 relative">
               {/* Mission Card */}
               <div className="bg-white rounded-[16px] p-6 lg:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-gray-100 flex gap-5 lg:gap-6 relative overflow-hidden z-10">
                 <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-500 rounded-l-[16px]" />
@@ -515,11 +510,11 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Meet Our Founder & 4. Founder Quote */}
-      <section className="py-24 bg-[#F8FAFC] relative z-10">
+      <section className="py-12 md:py-10 md:py-16 bg-[#F8FAFC] relative z-10">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="text-center mb-16 flex flex-col items-center">
+          <div className="text-center mb-8 md:mb-12 flex flex-col items-center">
             <h2 className="text-[40px] md:text-[48px] font-black text-[#0B152A] mb-3 tracking-tight">Meet Our Founder</h2>
             <div className="w-12 h-1.5 bg-blue-500 rounded-full mb-4 relative">
               <div className="absolute -right-3 top-0 w-1.5 h-1.5 bg-blue-500 rounded-full" />
@@ -531,7 +526,7 @@ export default function AboutPage() {
           <div className="bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col lg:flex-row">
             
             {/* Left Column - Dark Blue */}
-            <div className="bg-[#0B152A] w-full lg:w-[380px] shrink-0 p-6 md:p-10 flex flex-col items-center relative overflow-hidden">
+            <div className="bg-[#0B152A] w-full lg:w-[380px] shrink-0 p-6 md:p-6 md:p-10 flex flex-col items-center relative overflow-hidden">
                {/* Profile Image with rings */}
                <div className="relative mb-8 md:mb-10 w-48 h-48 md:w-[240px] md:h-[240px]">
                  {/* Blue swoop decoration */}
@@ -597,7 +592,7 @@ export default function AboutPage() {
             </div>
 
             {/* Right Column - White */}
-            <div className="p-6 sm:p-10 lg:p-14 flex-1 relative bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-blend-overlay">
+            <div className="p-6 sm:p-6 md:p-10 lg:p-14 flex-1 relative bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-blend-overlay">
               {/* Dot pattern background right side */}
               <div className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-50" />
               
@@ -642,8 +637,8 @@ export default function AboutPage() {
                       <Users className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <div className="text-[13px] font-bold text-gray-900 leading-tight">Happy</div>
-                      <div className="text-[10px] text-gray-500 mt-0.5">Clients Served</div>
+                      <div className="text-[13px] font-bold text-gray-900 leading-tight">20</div>
+                      <div className="text-[10px] text-gray-500 mt-0.5">Happy Clients</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 bg-gray-50/50">
@@ -671,11 +666,11 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Skills */}
-      <section className="py-24 relative z-10 bg-[#F8FAFC]">
+      <section className="py-12 md:py-10 md:py-16 relative z-10 bg-[#F8FAFC]">
         {/* Soft glow at the top */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-blue-100 rounded-full blur-[80px] pointer-events-none" />
         
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16 relative z-10">
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8 md:mb-12 relative z-10">
           <div className="inline-flex items-center gap-4 mb-4">
             <div className="w-12 h-px bg-blue-200" />
             <span className="text-blue-600 font-bold text-[11px] tracking-widest uppercase">Our Expertise</span>
@@ -712,7 +707,7 @@ export default function AboutPage() {
       </section>
 
       {/* 6. What We Do */}
-      <section className="py-24 bg-[#0A162B] relative z-10 overflow-hidden">
+      <section className="py-12 md:py-10 md:py-16 bg-[#0A162B] relative z-10 overflow-hidden">
         {/* Dark Blue Background with dots & gradients */}
         <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#101D38] to-transparent opacity-50" />
         <div className="absolute -left-32 top-32 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]" />
@@ -727,7 +722,7 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-12">
             <div className="inline-block px-5 py-2 bg-blue-600 text-white rounded-full text-[11px] font-bold tracking-widest uppercase mb-6 shadow-lg shadow-blue-600/30">
               Our Services
             </div>
@@ -735,14 +730,14 @@ export default function AboutPage() {
             <p className="text-[15px] text-blue-200/70 max-w-2xl mx-auto">A comprehensive suite of technical and creative services engineered to scale your business.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {whatWeDo.map((item, idx) => (
-              <div key={idx} className="bg-[#121E36]/80 backdrop-blur-sm border border-white/5 rounded-[20px] p-8 hover:bg-[#162440] transition-colors flex flex-col items-center text-center group cursor-default shadow-lg shadow-black/10">
-                <div className={`w-16 h-16 rounded-full ${item.color} flex items-center justify-center mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className="text-white" size={28} strokeWidth={2.5} />
+              <div key={idx} className="bg-[#121E36]/80 backdrop-blur-sm border border-white/5 rounded-[20px] p-5 sm:p-6 md:p-8 hover:bg-[#162440] transition-colors flex flex-col items-center text-center group cursor-default shadow-lg shadow-black/10">
+                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full ${item.color} flex items-center justify-center mb-4 md:mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className="text-white w-6 h-6 md:w-7 md:h-7" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-[17px] font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-[13px] text-gray-400 leading-relaxed mb-8 flex-1">{item.desc}</p>
+                <h3 className="text-[14px] sm:text-[15px] md:text-[17px] font-bold text-white mb-2 md:mb-3">{item.title}</h3>
+                <p className="text-[11px] sm:text-[12px] md:text-[13px] text-gray-400 leading-relaxed mb-6 md:mb-8 flex-1">{item.desc}</p>
                 
                 {/* Colored underline matching the icon color */}
                 <div className={`w-10 h-1 rounded-full ${item.color} opacity-80`} />
@@ -753,12 +748,12 @@ export default function AboutPage() {
       </section>
 
       {/* 8. Technologies & 7. Industries */}
-      <section className="py-24 relative z-10 bg-[#F8FAFC]">
+      <section className="py-12 md:py-10 md:py-16 relative z-10 bg-[#F8FAFC]">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
             
             {/* Technologies Card */}
-            <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative overflow-hidden flex flex-col h-full group">
+            <div className="bg-white rounded-[32px] p-8 md:p-6 md:p-6 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative overflow-hidden flex flex-col h-full group">
               {/* Dot Grid Top Right */}
               <div className="absolute top-8 right-8 grid grid-cols-3 gap-1.5 opacity-30">
                 {[...Array(9)].map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-violet-400 rounded-full" />)}
@@ -793,7 +788,7 @@ export default function AboutPage() {
             </div>
 
             {/* Industries Card */}
-            <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative overflow-hidden flex flex-col h-full group">
+            <div className="bg-white rounded-[32px] p-8 md:p-6 md:p-6 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative overflow-hidden flex flex-col h-full group">
               {/* Dot Grid Top Right */}
               <div className="absolute top-8 right-8 grid grid-cols-3 gap-1.5 opacity-40">
                 {[...Array(9)].map((_, i) => <div key={i} className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />)}
@@ -832,12 +827,12 @@ export default function AboutPage() {
       </section>
 
       {/* 9. Development Process */}
-      <section className="py-24 bg-[#F8FAFC] border-y border-blue-100 relative z-10 overflow-hidden">
+      <section className="py-12 md:py-10 md:py-16 bg-[#F8FAFC] border-y border-blue-100 relative z-10 overflow-hidden">
         {/* Soft background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-10 md:mb-8 md:mb-12">
             <div className="inline-flex items-center gap-4 mb-4">
               <div className="w-10 h-px bg-blue-300" />
               <span className="text-blue-600 font-bold text-[11px] tracking-widest uppercase">Our Engineering Process</span>
@@ -905,13 +900,13 @@ export default function AboutPage() {
       </section>
 
       {/* 10. Why Choose Rudrifix */}
-      <section className="py-24 bg-[#F8FAFC] relative z-10 overflow-hidden">
+      <section className="py-12 md:py-10 md:py-16 bg-[#F8FAFC] relative z-10 overflow-hidden">
         {/* Soft background glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-50/50 rounded-full blur-[80px] pointer-events-none" />
 
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-10 md:mb-8 md:mb-12">
             <div className="inline-flex items-center gap-4 mb-4">
               <div className="w-8 h-px bg-blue-400" />
               <span className="text-blue-600 font-bold text-[11px] tracking-widest uppercase">Why Choose Rudrifix?</span>
@@ -926,7 +921,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-6">
             
             {/* Card 1: Purple */}
-            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#A855F7' }}>
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-6 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#A855F7' }}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               
@@ -946,7 +941,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2: Green */}
-            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#10B981' }}>
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-6 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#10B981' }}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               
@@ -966,7 +961,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 3: Blue */}
-            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#3B82F6' }}>
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-6 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#3B82F6' }}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               
@@ -986,7 +981,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 4: Orange */}
-            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#F97316' }}>
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 md:p-6 md:p-10 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col sm:flex-row gap-8 items-start group relative overflow-hidden" style={{ borderBottomWidth: '4px', borderBottomColor: '#F97316' }}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-50 rounded-full blur-3xl opacity-50 pointer-events-none group-hover:scale-150 transition-transform duration-700" />
               
@@ -1013,12 +1008,12 @@ export default function AboutPage() {
       <FAQSection faqs={faqs} />
       
       {/* CTA Section */}
-      <section className="py-12 sm:py-24 relative overflow-hidden z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-blue-600 border border-blue-500 rounded-[2rem] md:rounded-[3rem] p-8 sm:p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-blue-600/30">
+      <section className="py-12 sm:py-12 md:py-10 md:py-16 relative overflow-hidden z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-blue-600 border border-blue-500 rounded-[2rem] md:rounded-[3rem] p-8 sm:p-6 md:p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-blue-600/30">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
           <Rocket className="absolute top-0 right-0 text-white/10 w-64 h-64 -translate-y-1/2 translate-x-1/4 -rotate-12" />
           
-          <h2 className="text-[28px] leading-tight sm:text-4xl md:text-5xl font-black text-white mb-4 md:mb-6 relative z-10">Ready to engineer your growth?</h2>
+          <h2 className="text-[28px] leading-tight sm:text-3xl md:text-5xl font-black text-white mb-4 md:mb-6 relative z-10">Ready to engineer your growth?</h2>
           <p className="text-[15px] sm:text-base md:text-xl text-blue-100 mb-8 md:mb-10 leading-snug md:leading-relaxed max-w-2xl mx-auto relative z-10">Partner with Thanga Mari and the Rudrifix team to build software and marketing systems that dominate your industry.</p>
           <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-3 md:px-8 md:py-4 bg-white text-blue-700 rounded-xl font-bold hover:bg-gray-50 transition-colors relative z-10 text-base md:text-lg shadow-xl shadow-black/10 hover:scale-105 transform duration-300">
             Contact Us Today <ArrowRight size={20} />

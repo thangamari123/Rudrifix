@@ -30,7 +30,7 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions" 
   const faqSchema = buildFAQSchema(faqs);
 
   return (
-    <section className="py-24 relative z-10 bg-[#F8FAFC]">
+    <section className="py-12 md:py-10 md:py-16 relative z-10 bg-[#F8FAFC]">
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
@@ -45,7 +45,7 @@ export default function FAQSection({ faqs, title = "Frequently Asked Questions" 
       </div>
 
       <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-12">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-6 h-px bg-blue-300" />
             <MessageCircle className="w-5 h-5 text-blue-600" />
