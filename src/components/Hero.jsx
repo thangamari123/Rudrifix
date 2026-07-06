@@ -109,7 +109,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* ── Card 2: STATS (spans 5 cols) ── */}
+          {/* ── Card 2: STATS + CLIENT LOGOS (spans 5 cols) ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -121,29 +121,72 @@ export default function Hero() {
             <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl" />
 
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 mb-3">
                 <Globe size={12} className="text-blue-300" />
                 <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest">Our Numbers</span>
               </div>
 
-              <p className="text-white/70 text-sm mb-6 leading-relaxed">
-                Trusted by growing businesses across India to deliver real, measurable results.
+              <p className="text-white/70 text-xs sm:text-sm mb-4 leading-relaxed">
+                Trusted by growing businesses across India to deliver <span className="text-blue-300 font-semibold">real</span>, <span className="text-indigo-300 font-semibold">measurable results</span>.
               </p>
+
+              {/* Client Avatars */}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex -space-x-2.5">
+                  {[11, 12, 13, 14, 15].map(n => (
+                    <img
+                      key={n}
+                      src={`https://i.pravatar.cc/80?img=${n}`}
+                      alt="Client"
+                      className="w-8 h-8 rounded-full border-2 border-[#1e3460] object-cover"
+                    />
+                  ))}
+                  <div className="w-8 h-8 rounded-full border-2 border-[#1e3460] bg-blue-600 flex items-center justify-center text-white text-[10px] font-bold">+15</div>
+                </div>
+                <span className="text-white/60 text-xs font-medium">Join 20+ happy clients</span>
+              </div>
+
+              {/* Brand Logos Grid */}
+              <div className="mb-1">
+                <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold mb-2">Brands We've Worked With</p>
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { name: 'Meta', color: 'from-blue-600 to-blue-500', letter: 'M' },
+                    { name: 'Google', color: 'from-red-500 to-yellow-400', letter: 'G' },
+                    { name: 'Shopify', color: 'from-green-600 to-emerald-500', letter: 'S' },
+                    { name: 'HubSpot', color: 'from-orange-500 to-orange-400', letter: 'H' },
+                    { name: 'Notion', color: 'from-gray-700 to-gray-600', letter: 'N' },
+                    { name: 'Figma', color: 'from-purple-600 to-pink-500', letter: 'F' },
+                    { name: 'Canva', color: 'from-cyan-500 to-blue-400', letter: 'C' },
+                    { name: 'Zoho', color: 'from-rose-600 to-rose-500', letter: 'Z' },
+                  ].map(brand => (
+                    <div
+                      key={brand.name}
+                      className="bg-white/10 rounded-xl p-2 flex flex-col items-center justify-center border border-white/10 hover:bg-white/15 transition-colors"
+                    >
+                      <div className={`w-7 h-7 rounded-lg bg-gradient-to-br ${brand.color} flex items-center justify-center text-white font-black text-sm mb-1`}>
+                        {brand.letter}
+                      </div>
+                      <span className="text-white/50 text-[8px] font-semibold leading-none">{brand.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-3 relative z-10">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 relative z-10 mt-4">
               {stats.map((s, i) => (
                 <motion.div
                   key={s.label}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.4 + i * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10 text-center"
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4 border border-white/10 text-center"
                 >
-                  <s.icon size={18} className="text-blue-300 mx-auto mb-1.5" />
-                  <div className="text-white font-black text-xl sm:text-2xl leading-none">{s.value}</div>
-                  <div className="text-white/50 text-[10px] font-medium mt-1 leading-tight">{s.label}</div>
+                  <s.icon size={16} className="text-blue-300 mx-auto mb-1.5" />
+                  <div className="text-white font-black text-lg sm:text-2xl leading-none">{s.value}</div>
+                  <div className="text-white/50 text-[9px] sm:text-[10px] font-medium mt-1 leading-tight">{s.label}</div>
                 </motion.div>
               ))}
             </div>
