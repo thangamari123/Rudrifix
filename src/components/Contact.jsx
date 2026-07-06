@@ -46,12 +46,18 @@ export default function Contact() {
       // 1. Real Backend Call to Google Apps Script (run asynchronously without blocking)
       const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzb0bCuo7r4WQbdF1Gt2UNt2bj0tV_UURYd_tU5Jtg6IGEtdeuo9gKLtPQ08pjQLyE/exec';
 
+      let sheetMessage = form.message;
+      if (auditData) {
+        sheetMessage += `\n\n--- Audit Results ---\nScore: ${auditData.score}/5 (${auditData.scoreLabel?.text || ''})\nWebsite: ${auditData.answers[1] ? 'Yes' : 'No'}, Maps: ${auditData.answers[2] ? 'Yes' : 'No'}, Social: ${auditData.answers[3] ? 'Yes' : 'No'}, Ads: ${auditData.answers[4] ? 'Yes' : 'No'}, Analytics: ${auditData.answers[5] ? 'Yes' : 'No'}`;
+      }
+
       fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
+          message: sheetMessage,
           date: new Date().toLocaleString(),
           source: auditData ? 'Audit + Contact Form' : 'Contact Form'
         }),
