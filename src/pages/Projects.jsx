@@ -274,20 +274,13 @@ const categories = [
 function ProjectCard({ project }) {
   return (
     <div
-      className={`group ${project.cardBg} rounded-2xl border ${project.cardBorder} ${project.hoverBorder} shadow-md ${project.cardShadow} hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full overflow-hidden`}
+      className={`group ${project.cardBg} rounded-xl sm:rounded-2xl border ${project.cardBorder} ${project.hoverBorder} shadow-sm ${project.cardShadow} hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col h-full overflow-hidden`}
     >
       {/* Visual Preview */}
       <div className={`relative aspect-[16/10] ${project.cardBg} overflow-hidden border-b ${project.dividerColor}`}>
-        {/* Category Badge */}
-        <div className="absolute top-3 left-3 z-10">
-          <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide shadow-sm border backdrop-blur-md ${project.badgeStyle}`}>
-            {project.category}
-          </span>
-        </div>
-
         {/* Live Indicator */}
-        <div className="absolute top-3 right-3 z-10">
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500 text-white shadow-sm backdrop-blur-sm">
+        <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10">
+          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-full text-[9px] sm:text-[10px] font-semibold bg-emerald-500 text-white shadow-sm backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             Live
           </span>
@@ -306,7 +299,7 @@ function ProjectCard({ project }) {
           href={project.link || '#'}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-[2px] z-20"
+          className="hidden sm:flex absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-[2px] z-20"
           aria-label={`Open ${project.title} in a new tab`}
         >
           <span className="px-3.5 py-2 bg-white text-slate-900 rounded-full font-bold shadow-lg flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 hover:scale-105">
@@ -317,29 +310,29 @@ function ProjectCard({ project }) {
       </div>
 
       {/* Card Content with matching theme background */}
-      <div className={`p-4 sm:p-5 flex flex-col flex-1 ${project.cardBg}`}>
-        <div className="flex items-start justify-between gap-2 mb-1.5">
+      <div className={`p-3.5 sm:p-4 md:p-4.5 flex flex-col flex-1 ${project.cardBg}`}>
+        <div className="flex items-start justify-between gap-2 mb-1 sm:mb-1.5">
           <h3 
-            className={`text-base sm:text-lg font-bold ${project.titleColor} transition-colors line-clamp-1`}
+            className={`text-sm sm:text-base md:text-[17px] font-bold ${project.titleColor} transition-colors line-clamp-1`}
             title={project.title}
           >
             {project.title}
           </h3>
         </div>
 
-        <p className={`${project.descColor} text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2 flex-1`}>
+        <p className={`${project.descColor} text-[11px] sm:text-xs leading-relaxed mb-3 line-clamp-2 flex-1`}>
           {project.desc}
         </p>
 
-        {/* Metric & Tag Row */}
-        <div className={`flex items-center justify-between gap-2 pt-3 border-t ${project.dividerColor} mb-4 text-xs`}>
-          <div className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md font-bold shadow-xs border text-[11px] sm:text-xs ${project.metricStyle}`}>
-            <Zap size={13} />
+        {/* Metric & Category Row */}
+        <div className={`flex items-center justify-between gap-1.5 pt-2.5 border-t ${project.dividerColor} mb-3 text-[11px] sm:text-xs`}>
+          <div className={`inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md font-bold shadow-xs border text-[10px] sm:text-xs ${project.metricStyle}`}>
+            <Zap size={12} />
             <span>{project.metric}</span>
           </div>
 
-          <span className={`text-[11px] font-semibold border px-2 py-0.5 rounded ${project.tagStyle}`}>
-            {project.tag}
+          <span className={`text-[10px] sm:text-[11px] font-bold border px-2 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md ${project.badgeStyle}`}>
+            {project.category}
           </span>
         </div>
 
@@ -348,10 +341,10 @@ function ProjectCard({ project }) {
           href={project.link || '#'}
           target="_blank"
           rel="noopener noreferrer"
-          className={`w-full flex items-center justify-center gap-1.5 py-2.5 px-4 ${project.buttonStyle} font-semibold rounded-xl text-xs sm:text-sm transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98] mt-auto`}
+          className={`w-full flex items-center justify-center gap-1.5 py-2 sm:py-2.5 px-3 ${project.buttonStyle} font-semibold rounded-lg sm:rounded-xl text-xs sm:text-sm transition-all duration-200 shadow-sm hover:shadow-md active:scale-[0.98] mt-auto`}
         >
           <span>View Live Website</span>
-          <ExternalLink size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ExternalLink size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </div>
@@ -387,47 +380,38 @@ export default function Projects() {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-10 md:pt-40 md:pb-14 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-300/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/3 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-300/20 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
+      <section className="relative pt-24 pb-4 sm:pt-28 sm:pb-6 md:pt-36 md:pb-8 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/3 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-violet-300/20 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-blue-200 backdrop-blur-md mb-6 shadow-sm"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-white/80 border border-blue-200 backdrop-blur-md mb-4 shadow-sm"
           >
             <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
             <span className="text-xs font-bold text-blue-800 tracking-wider uppercase">Our Portfolio</span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight mb-5"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 sm:mb-6"
           >
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">Best Work</span>
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed"
-          >
-            We don't just build websites; we build digital businesses. Take a look at some of our recent projects that have transformed our clients' online presence.
-          </motion.p>
         </div>
       </section>
 
       {/* Projects Showcase Section */}
-      <section className="py-4 pb-24 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-2 pb-16 sm:pb-20 md:pb-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
           
           {/* Category Filter Tabs */}
-          <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 pt-1 mb-10 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-3 pt-1 mb-6 sm:mb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-1">
             {categories.map((cat) => {
               const count = cat === 'All' ? projects.length : projects.filter((p) => p.category === cat).length;
               const isActive = activeCategory === cat;
@@ -435,7 +419,7 @@ export default function Projects() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                  className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                     isActive
                       ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25 scale-[1.02]'
                       : 'bg-white text-slate-600 border border-slate-200/80 hover:border-slate-300 hover:bg-slate-50'
@@ -457,7 +441,7 @@ export default function Projects() {
           {/* Compact, Responsive Grid */}
           <motion.div 
             layout 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6"
           >
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
@@ -478,17 +462,17 @@ export default function Projects() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-14 md:py-20 bg-white border-t border-gray-100">
+      <section className="py-10 sm:py-14 md:py-16 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3">
             Ready to start your project?
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 mb-6 max-w-lg mx-auto">
             Let's create something amazing together.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/30 active:scale-95"
+            className="inline-flex items-center gap-2 px-7 py-3 sm:px-8 sm:py-3.5 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-500/30 active:scale-95 text-sm"
           >
             Get in touch <ArrowRight size={18} />
           </Link>

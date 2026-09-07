@@ -108,13 +108,6 @@ function ProjectCard({ project }) {
     >
       {/* Visual Preview */}
       <div className={`relative aspect-[16/10] ${project.cardBg} overflow-hidden border-b ${project.dividerColor}`}>
-        {/* Category Badge */}
-        <div className="absolute top-3 left-3 z-10">
-          <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide shadow-sm border backdrop-blur-md ${project.badgeStyle}`}>
-            {project.category}
-          </span>
-        </div>
-
         {/* Live Indicator */}
         <div className="absolute top-3 right-3 z-10">
           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500 text-white shadow-sm backdrop-blur-sm">
@@ -161,15 +154,15 @@ function ProjectCard({ project }) {
           {project.desc}
         </p>
 
-        {/* Metric & Tag Row */}
+        {/* Metric & Category Row */}
         <div className={`flex items-center justify-between gap-2 pt-3 border-t ${project.dividerColor} mb-4 text-xs`}>
           <div className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md font-bold shadow-xs border text-[11px] sm:text-xs ${project.metricStyle}`}>
             <Zap size={13} />
             <span>{project.metric}</span>
           </div>
 
-          <span className={`text-[11px] font-semibold border px-2 py-0.5 rounded ${project.tagStyle}`}>
-            {project.tag}
+          <span className={`text-[11px] font-bold border px-2.5 py-0.5 rounded-md ${project.badgeStyle}`}>
+            {project.category}
           </span>
         </div>
 
