@@ -96,7 +96,7 @@ export default function BusinessAudit() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-12"
+          className="text-center mb-8 sm:mb-10"
         >
           <div
             className="inline-flex items-center px-5 py-2 rounded-full mb-5 shadow-sm"
@@ -108,15 +108,12 @@ export default function BusinessAudit() {
           </div>
 
           <h2
-            className="font-heading font-black text-[#0F172A] leading-[1.1] mb-4"
+            className="font-heading font-black text-[#0F172A] leading-[1.1]"
             style={{ fontSize: 'clamp(1.75rem, 5vw, 3.25rem)', letterSpacing: '-0.04em' }}
           >
             How Strong Is Your{' '}
             <span className="gradient-text-saas">Business Online?</span>
           </h2>
-          <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
-            Answer 5 quick questions and get an instant snapshot of your digital presence.
-          </p>
         </motion.div>
 
         {/* ── Card ── */}

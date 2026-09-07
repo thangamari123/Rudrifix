@@ -101,17 +101,14 @@ export default function BudgetPlanner() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
 
         {/* ═══ Header ═══ */}
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 shadow-sm" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)' }}>
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-5 shadow-sm" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)' }}>
             <span className="text-[#3B82F6] text-xs font-bold uppercase tracking-[0.08em] font-heading">Marketing Tools</span>
           </div>
-          <h2 className="font-heading font-extrabold text-[#0F172A] leading-[1.08] mb-5" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)', letterSpacing: '-0.04em' }}>
+          <h2 className="font-heading font-extrabold text-[#0F172A] leading-[1.08]" style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)', letterSpacing: '-0.04em' }}>
             How Should You Spend Your{' '}
             <span className="gradient-text-pb">Marketing Budget?</span>
           </h2>
-          <p className="text-[#64748B] text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Set your monthly budget, pick your business type, and choose the services you need — we'll build your plan instantly.
-          </p>
         </motion.div>
 
         {/* ═══ Step Navigation ═══ */}

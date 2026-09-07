@@ -122,23 +122,19 @@ export default function Contact() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-10 sm:mb-12"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)', boxShadow: '0 10px 30px rgba(59,130,246,0.12)' }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-5" style={{ background: 'rgba(59,130,246,0.12)', backdropFilter: 'blur(12px)', boxShadow: '0 10px 30px rgba(59,130,246,0.12)' }}>
             <Send size={13} className="text-[#3B82F6]" />
             <span className="text-[#3B82F6] text-xs font-bold uppercase tracking-[0.08em] font-heading">Get In Touch</span>
           </div>
 
-          <h2 className="font-heading font-extrabold text-[#0F172A] leading-[1.08] mb-5" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.04em' }}>
+          <h2 className="font-heading font-extrabold text-[#0F172A] leading-[1.08]" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.04em' }}>
             Let's Grow Your{' '}
             <span className="gradient-text-pb">Business</span>{' '}
             Together
           </h2>
-
-          <p className="text-[#64748B] text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
-            Fill out the form below and we'll get back to you within 24 hours
-          </p>
         </motion.div>
 
         {/* ═══ Form Card ═══ */}
@@ -221,13 +217,13 @@ export default function Contact() {
             {/* CTA Button */}
             <motion.button
               type="submit"
-              whileHover={{ y: -4 }}
-              whileTap={{ scale: 0.97 }}
-              className={`group w-full h-[72px] rounded-[22px] text-white font-heading font-bold text-lg sm:text-xl flex items-center justify-center gap-3 transition-all duration-300 ${submitted ? 'bg-emerald-500 shadow-emerald-500/20' : ''
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className={`group w-full h-12 sm:h-14 rounded-xl sm:rounded-2xl text-white font-heading font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all duration-300 ${submitted ? 'bg-emerald-500 shadow-emerald-500/20' : ''
                 }`}
               style={{
                 background: !submitted ? 'linear-gradient(90deg, #7C3AED, #4F46E5, #2563EB)' : undefined,
-                boxShadow: submitted ? 'none' : '0 20px 40px rgba(99,102,241,0.3)'
+                boxShadow: submitted ? 'none' : '0 12px 30px rgba(99,102,241,0.25)'
               }}
               disabled={submitted || isSubmitting}
             >

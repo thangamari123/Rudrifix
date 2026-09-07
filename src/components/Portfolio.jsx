@@ -215,7 +215,7 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
 
         {/* ── Header ── */}
-        <div className="text-center mb-10 sm:mb-14">
+        <div className="text-center mb-8 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -228,19 +228,11 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="font-heading font-black text-[#0F172A] leading-[1.05] mb-4"
+            className="font-heading font-black text-[#0F172A] leading-[1.05]"
             style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)', letterSpacing: '-0.05em' }}
           >
             Completed <span className="gradient-text-saas">Projects</span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.18 }}
-            className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto"
-          >
-            A selection of high-performing websites we've built to help our clients grow and succeed online.
-          </motion.p>
         </div>
 
         {/* ── Layout: Mobile Auto-Scroll / Desktop Proper Grid ── */}
